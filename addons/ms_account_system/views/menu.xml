@@ -1,0 +1,13 @@
+<odoo>
+        <!-- Menú Principal -->
+        <menuitem id="menu_root" name="Modulo Contable" sequence="10"/>
+
+
+        <!-- Submenú Agrupador: "Archivos Maestros" -->
+        <menuitem id="menu_master_files" name="Archivos Maestros" parent="menu_root" sequence="15"/>
+
+        <!-- Submenús dentro de "Archivos Maestros" -->
+        <menuitem id="menu_activity_plan" name="Plan de Actividades" parent="menu_master_files" action="action_activity_plan" sequence="20"/>
+        <menuitem id="menu_business_plan" name="Plan de Rubros" parent="menu_master_files" action="action_business_plan" sequence="30"/>
+        <menuitem id="menu_project_plan" name="Plan de Proyectos" parent="menu_master_files" action="action_project_plan" sequence="40"/>
+</odoo>

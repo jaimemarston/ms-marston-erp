@@ -1,1 +1,22 @@
-{"name": ""ms_account_system"", "version": "1.0", "depends": []} 
+{
+    'name': 'ms_account_system',
+    'version': '2.1',
+    'category': 'Tools',
+    'summary': 'Modulo Contable',
+    'description': """Modulo de Contabilidad Empresarial.
+    Incluye todos los modulos necesarios.""",
+    'author': 'Marston Software',
+    'depends': ['base', 'web'], 
+    'data': [
+        'security/ir.model.access.csv',  # Primero los permisos
+        'views/project_plan_views.xml',
+        'views/business_plan_views.xml',
+        'views/activity_plan_views.xml',
+        'views/menu.xml',
+        
+    ],
+    'images': ['static/description/icon.png'],
+    'installable': True,
+    'application': True,
+}
+

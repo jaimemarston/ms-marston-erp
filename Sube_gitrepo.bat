@@ -8,5 +8,5 @@ git commit -m "%commitMsg%"
 git push origin main
 
 echo.
-echo ¡Código subido con éxito!
+echo ¡Codigo subido con exito!
 pause
