@@ -8,7 +8,7 @@ class ActivityPlan(models.Model):
     activityplan_id = fields.Char(string='Codigo')
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")  # Descripción opcional
-
+    active = fields.Boolean(string="Active", default=True)
     
     # Campos de auditoría (no es necesario declararlos, pero pueden ser usados)
     create_uid = fields.Many2one('res.users', string="Created by", readonly=True)
@@ -17,9 +17,7 @@ class ActivityPlan(models.Model):
     write_date = fields.Datetime(string="Last Modified on", readonly=True)
     Company_id = fields.Many2one(
     'res.company', string="Company", required=True, 
-    default=lambda self: self.env.company,
-    active = fields.Boolean(string="Active", default=True),
+    default=lambda self: self.env.company)
+    
     sequence = fields.Integer(string="Sequence", default=10),
-    user_id = fields.Many2one('res.users', string="Assigned to")
-
-    )
+    #user_id = fields.Many2one('res.users', string="Assigned to")

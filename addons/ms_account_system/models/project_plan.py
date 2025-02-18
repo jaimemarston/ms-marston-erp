@@ -5,7 +5,7 @@ class ProjectPlan(models.Model):
     _description = 'Plan de Proyectos'
     _order = 'sequence, name'
 
-    accountingplan_id = fields.Char(string='Codigo')
+    projectplan_id = fields.Char(string='Codigo')
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")  # Descripción opcional
 

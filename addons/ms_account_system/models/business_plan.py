@@ -5,7 +5,7 @@ class BusinessPlan(models.Model):
     _description = 'Plan de Rubros'
     _order = 'sequence, name'
 
-    accountingplan_id = fields.Char(string='Codigo')
+    Businessplan = fields.Char(string='Codigo')
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")  # Descripción opcional
 

@@ -5,7 +5,7 @@ class FinancialPlan(models.Model):
     _description = 'Plan de Activades'
     _order = 'sequence, name'
 
-    activityplan_id = fields.Char(string='Codigo')
+    financialplan_id = fields.Char(string='Codigo')
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")  # Descripción opcional
 

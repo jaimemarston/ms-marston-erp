@@ -1,11 +1,11 @@
 from odoo import models, fields
 
-class CostCenter(models.Model):
-    _name = 'ms_account_system.costcenter_plan'
-    _description = 'Centro de Costos'
+class ProjectPlan(models.Model):
+    _name = 'ms_account_system.project_plan'
+    _description = 'Plan de Proyectos'
     _order = 'sequence, name'
 
-    accountingplan_id = fields.Char(string='Codigo')
+    projectplan_id = fields.Char(string='Codigo')
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")  # Descripción opcional
 
