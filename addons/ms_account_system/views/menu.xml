@@ -10,4 +10,17 @@
         <menuitem id="menu_activity_plan" name="Plan de Actividades" parent="menu_master_files" action="action_activity_plan" sequence="20"/>
         <menuitem id="menu_business_plan" name="Plan de Rubros" parent="menu_master_files" action="action_business_plan" sequence="30"/>
         <menuitem id="menu_project_plan" name="Plan de Proyectos" parent="menu_master_files" action="action_project_plan" sequence="40"/>
+
+<!--     
+        <menuitem id="menu_accounting_movements" name="Movimientos Contables" sequence="50"/>
+       
+        <menuitem id="menu_daily_movements" name="Movimiento Diario" parent="menu_accounting_movements" action="action_daily_movements" sequence="10"/>
+        <menuitem id="menu_supplier_invoices" name="Proveedores - Facturas de Compra" parent="menu_accounting_movements" action="action_supplier_invoices" sequence="20"/>
+        <menuitem id="menu_supplier_payments" name="Proveedores - Pagos" parent="menu_accounting_movements" action="action_supplier_payments" sequence="30"/>
+        <menuitem id="menu_supplier_fees" name="Proveedores - Honorarios" parent="menu_accounting_movements" action="action_supplier_fees" sequence="40"/>
+        <menuitem id="menu_client_invoices" name="Clientes - Facturas" parent="menu_accounting_movements" action="action_client_invoices" sequence="50"/>
+        <menuitem id="menu_client_payments" name="Clientes - Pagos" parent="menu_accounting_movements" action="action_client_payments" sequence="60"/>
+        <menuitem id="menu_income" name="Ingresos" parent="menu_accounting_movements" action="action_income" sequence="70"/>
+
+ -->
 </odoo>
