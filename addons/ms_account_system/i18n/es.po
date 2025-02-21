@@ -1,0 +1,237 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ms_account_system
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20241125\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-21 09:14+0000\n"
+"PO-Revision-Date: 2025-02-21 09:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_account_journal_form
+msgid "Accounting Book / Origins"
+msgstr "Libros contables/ Orígenes"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_accounting_reports
+msgid "Accounting Reports"
+msgstr "Reportes Contables"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_master_accounting
+msgid "Accounting Transactions"
+msgstr "Movimientos Contables"
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__active
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__active
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__active
+msgid "Active"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_activity_plan
+msgid "Activities plan"
+msgstr "Plan de Actividades"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_master_files
+msgid "Archivos Maestros"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.action_res_bank_form
+#: model:ir.ui.menu,name:ms_account_system.menu_action_action_res_bank_form
+msgid "Banks"
+msgstr "Bancos"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_basic_accounting_reports
+msgid "Basic Accounting Reports"
+msgstr "Reportes Contables Basicos"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_budget_reports
+msgid "Budget Reports"
+msgstr "Reportes Presupuestales"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_account_form
+msgid "Chart of accounts"
+msgstr "Plan de Cuentas"
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__financialplan_id
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__businessplan_id
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__projectplan_id
+msgid "Codigo"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__company_id
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__company_id
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__company_id
+msgid "Company"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.account_analytic_def_account
+msgid "Cost center"
+msgstr "Centro de Costos"
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__create_uid
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__create_uid
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__create_date
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__create_date
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_move_out_invoice_type
+msgid "Customers - Invoices"
+msgstr "Clientes - Facturas"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_account_payments_receivable
+msgid "Customers - Payments"
+msgstr "Clientes - Pagos"
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__description
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__description
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__description
+msgid "Description"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__display_name
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__display_name
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_document_type
+msgid "Document Types"
+msgstr "Tipos de Documento"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_currency_form
+msgid "Exchange rates"
+msgstr "Tipos de Cambio"
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__id
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__id
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__id
+msgid "ID"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_business_plan
+msgid "Item Plan"
+msgstr "Plan de Rubros"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.action_move_journal_line
+msgid "Journal Entries"
+msgstr "Movimiento Diario"
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__write_uid
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__write_uid
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__write_date
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__write_date
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_root
+msgid "Modulo Contable"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_activity_plan__name
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_business_plan__name
+#: model:ir.model.fields,field_description:ms_account_system.field_ms_account_system_project_plan__name
+msgid "Name"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.actions.act_window,name:ms_account_system.action_activity_plan
+#: model:ir.model,name:ms_account_system.model_ms_account_system_activity_plan
+msgid "Plan de Activades"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.actions.act_window,name:ms_account_system.action_project_plan
+msgid "Plan de Proyectos Detalle y Presupuesto"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.actions.act_window,name:ms_account_system.action_business_plan
+#: model:ir.model,name:ms_account_system.model_ms_account_system_business_plan
+msgid "Plan de Rubros"
+msgstr ""
+
+#. module: ms_account_system
+#: model:ir.model,name:ms_account_system.model_ms_account_system_project_plan
+#: model:ir.ui.menu,name:ms_account_system.menu_project_plan
+msgid "Project Plan"
+msgstr "Plan de Proyectos"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_move_in_invoice_type
+msgid "Providers - Bills"
+msgstr "Proveedores - Facturas de Compra"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_account_payments_payable
+msgid "Providers - Payments"
+msgstr "Proveedores - Pagos"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_hr_expense_root
+msgid "Record of Surrenders (Expenses)"
+msgstr "Registro de Rendiciones(Gastos)"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_finance_reports
+msgid "Reporting"
+msgstr "Reportes"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.res_partner_menu_contacts
+msgid "Suppliers / Customers"
+msgstr "Proveedores / Clientes"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_surrender
+msgid "Surrenders"
+msgstr "Rendiciones"
+
+#. module: ms_account_system
+#: model:ir.ui.menu,name:ms_account_system.menu_action_tax_form
+msgid "Taxes"
+msgstr "Impuestos"
