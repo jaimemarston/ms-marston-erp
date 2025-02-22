@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_root_hr" name="Employees Module" sequence="10"/>
+
+    <menuitem id="hr_recruitment.menu_hr_recruitment_root" name="Recruitment" parent="menu_root_hr" sequence="20"/>
+
+    <menuitem id="menu_hr_employee" name="Employees" parent="menu_root_hr" sequence="30"/>
+    <menuitem id="menu_hr_employee_user" name="Employees" action="hr.open_view_employee_list_my" parent="menu_hr_employee" sequence="10"/>
+    <menuitem id="menu_hr_employee_org_chart" name="Org Chart" action="hr_org_chart.action_hr_employee_org_chart" parent="menu_hr_employee" sequence="15" />
+    <menuitem id="hr_menu_contract" name="Contracts" action="hr_contract.action_hr_contract" parent="menu_hr_employee" sequence="20"/>
+    <menuitem id="menu_hr_department_kanban" name="Departaments" action="hr.hr_department_kanban_action" parent="menu_hr_employee" sequence="30"/>
+    <menuitem id="menu_resource_calendar" name="Working Schedules" action="resource.action_resource_calendar_form" parent="menu_hr_employee" sequence="40"/>
+    <menuitem id="menu_hr_departure_reason_tree" name="Departure Reasons" action="hr.hr_departure_reason_action" parent="menu_hr_employee" sequence="50"/>
+    <menuitem id="hr_skill_type_menu" name="Skills" action="hr_skills.hr_skill_type_action" parent="menu_hr_employee" sequence="60"/>
+    <menuitem id="hr_contract_type" name="Employment Types" action="hr.hr_contract_type_action" parent="menu_hr_employee" sequence="70"/>
+
+    <menuitem id="menu_hr_attendance_holidays" name="Absences / Staff Time" parent="menu_root_hr" sequence="40"/>
+    <menuitem id="hr_attendance.menu_hr_attendance_root" name="Attendances" parent="menu_hr_attendance_holidays" sequence="10" />
+    <menuitem id="hr_holidays.menu_hr_holidays_root" name="Time Off" parent="menu_hr_attendance_holidays" sequence="20" />
+
+    <menuitem id="menu_hr_reports" name="Reports" parent="menu_root_hr" sequence="50"/>
+    <menuitem id="hr_employee_skill_report_menu" name="Skills" action="hr_skills.hr_employee_skill_report_action" parent="menu_hr_reports" sequence="10"/>
+
+    <menuitem id="mail.menu_root_discuss" name="Help Table"/>
+
+</odoo>
