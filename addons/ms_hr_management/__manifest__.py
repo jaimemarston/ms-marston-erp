@@ -11,6 +11,7 @@
         'hr_holidays_attendance',
         'hr_org_chart',
         'resource',
+        'payroll',
     ],
     'data': [
         'views/menu.xml',

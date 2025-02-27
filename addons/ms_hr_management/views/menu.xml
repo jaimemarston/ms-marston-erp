@@ -19,7 +19,8 @@
     <menuitem id="hr_attendance.menu_hr_attendance_root" name="Attendances" parent="menu_hr_attendance_holidays" sequence="10" />
     <menuitem id="hr_holidays.menu_hr_holidays_root" name="Time Off" parent="menu_hr_attendance_holidays" sequence="20" />
 
-    <menuitem id="menu_hr_reports" name="Reports" parent="menu_root_hr" sequence="50"/>
+    <menuitem id="payroll.payroll_menu_root" name="Payroll" parent="menu_root_hr" sequence="50"/>
+    <menuitem id="menu_hr_reports" name="Reports" parent="menu_root_hr" sequence="60"/>
     <menuitem id="hr_employee_skill_report_menu" name="Skills" action="hr_skills.hr_employee_skill_report_action" parent="menu_hr_reports" sequence="10"/>
 
     <menuitem id="mail.menu_root_discuss" name="Help Table"/>
