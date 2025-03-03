@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Menu Items -->
+
+    <menuitem id="menu_poa_root" name="POA Management" sequence="10"/>
+
+    <menuitem id="menu_poa_plan" name="Annual Operating Plans" parent="menu_poa_root" action="action_poa_plan" sequence="10"/>
+
+    <menuitem id="menu_poa_objective" name="Strategic Objectives" parent="menu_poa_root" action="action_poa_objective" sequence="20"/>
+
+    <menuitem id="menu_poa_entity" name="Entities" parent="menu_poa_root" action="action_poa_entity" sequence="30"/>
+
+    <menuitem id="menu_poa_budget" name="Budgets" parent="menu_poa_root" action="action_poa_budget" sequence="40"/>
+
+    <menuitem id="menu_poa_activity" name="Activities" parent="menu_poa_root" action="action_poa_activity" sequence="50"/>
+    
+</odoo>
