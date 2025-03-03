@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="menu_root_hr" name="Employees Module" sequence="10"/>
+    <menuitem id="menu_root_hr_empleoyees" name="Employees" sequence="10"/>
 
-    <menuitem id="hr_recruitment.menu_hr_recruitment_root" name="Recruitment" parent="menu_root_hr" sequence="20"/>
+    <menuitem id="hr_recruitment.menu_hr_recruitment_root" name="Recruitment" parent="menu_root_hr_empleoyees" sequence="20"/>
 
-    <menuitem id="menu_hr_employee" name="Employees" parent="menu_root_hr" sequence="30"/>
+    <menuitem id="menu_hr_employee" name="Employees" parent="menu_root_hr_empleoyees" sequence="30"/>
     <menuitem id="menu_hr_employee_user" name="Employees" action="hr.open_view_employee_list_my" parent="menu_hr_employee" sequence="10"/>
     <menuitem id="menu_hr_employee_org_chart" name="Org Chart" action="hr_org_chart.action_hr_employee_org_chart" parent="menu_hr_employee" sequence="15" />
     <menuitem id="hr_menu_contract" name="Contracts" action="hr_contract.action_hr_contract" parent="menu_hr_employee" sequence="20"/>
@@ -15,14 +15,39 @@
     <menuitem id="hr_skill_type_menu" name="Skills" action="hr_skills.hr_skill_type_action" parent="menu_hr_employee" sequence="60"/>
     <menuitem id="hr_contract_type" name="Employment Types" action="hr.hr_contract_type_action" parent="menu_hr_employee" sequence="70"/>
 
-    <menuitem id="menu_hr_attendance_holidays" name="Absences / Staff Time" parent="menu_root_hr" sequence="40"/>
+    <menuitem id="menu_hr_attendance_holidays" name="Absences / Staff Time" parent="menu_root_hr_empleoyees" sequence="40"/>
     <menuitem id="hr_attendance.menu_hr_attendance_root" name="Attendances" parent="menu_hr_attendance_holidays" sequence="10" />
     <menuitem id="hr_holidays.menu_hr_holidays_root" name="Time Off" parent="menu_hr_attendance_holidays" sequence="20" />
 
-    <menuitem id="payroll.payroll_menu_root" name="Payroll" parent="menu_root_hr" sequence="50"/>
-    <menuitem id="menu_hr_reports" name="Reports" parent="menu_root_hr" sequence="60"/>
+    <menuitem id="payroll.payroll_menu_root" name="Payroll" parent="menu_root_hr_empleoyees" sequence="50"/>
+    <menuitem id="menu_hr_reports" name="Reports" parent="menu_root_hr_empleoyees" sequence="60"/>
     <menuitem id="hr_employee_skill_report_menu" name="Skills" action="hr_skills.hr_employee_skill_report_action" parent="menu_hr_reports" sequence="10"/>
 
     <menuitem id="mail.menu_root_discuss" name="Help Table"/>
+
+     <!-- hr Employees menu  -->
+    <record model="ir.ui.menu" id="hr.menu_hr_root">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+    <!-- calendar menu  -->
+    <record model="ir.ui.menu" id="calendar.mail_menu_calendar">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+    <!-- apps menu  -->
+    <record model="ir.ui.menu" id="base.menu_management">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+    <!-- board menu  -->
+    <record model="ir.ui.menu" id="spreadsheet_dashboard.spreadsheet_dashboard_menu_root">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
+    <!-- contacts menu  -->
+    <record model="ir.ui.menu" id="contacts.menu_contacts">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
 
 </odoo>
