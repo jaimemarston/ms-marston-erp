@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ms_request_settings_view_list" model="ir.ui.view">
+        <field name="name">ms.request.settings.view.list</field>
+        <field name="model">ms.request.settings</field>
+        <field name="arch" type="xml">
+            <list string="Settings">
+                <field name="name" />
+                <field name="type" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_ms_request_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">ms.request.settings</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

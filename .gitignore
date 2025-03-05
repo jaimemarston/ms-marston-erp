@@ -1,5 +1,10 @@
 __pycache__/ 
 *.pyc 
 .env 
+<<<<<<< HEAD
 
 .vscode
+=======
+docker-compose.yml
+config/odoo.conf
+>>>>>>> develop

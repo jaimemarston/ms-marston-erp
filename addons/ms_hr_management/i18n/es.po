@@ -38,13 +38,9 @@ msgstr "Motivos de Cese (Salida)"
 #. module: ms_hr_management
 #: model:ir.ui.menu,name:ms_hr_management.menu_hr_employee
 #: model:ir.ui.menu,name:ms_hr_management.menu_hr_employee_user
+#: model:ir.ui.menu,name:ms_hr_management.menu_root_hr_empleoyees
 msgid "Employees"
 msgstr "Empleados"
-
-#. module: ms_hr_management
-#: model:ir.ui.menu,name:ms_hr_management.menu_root_hr
-msgid "Employees Module"
-msgstr "Modulo Empleados"
 
 #. module: ms_hr_management
 #: model:ir.ui.menu,name:ms_hr_management.hr_contract_type

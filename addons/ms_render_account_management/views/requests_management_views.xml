@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ms_request_management_view_list" model="ir.ui.view">
+        <field name="name">ms.request.management.view.list</field>
+        <field name="model">ms.request.management</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" string="Correlative" />
+                <field name="partner_id" string="Applicant" />
+                <field name="request_type" />
+                <field name="amount" />
+            </list>
+        </field>
+    </record>
+
+    <record id="ms_request_management_view_form" model="ir.ui.view">
+        <field name="name">ms.request.management.view.form</field>
+        <field name="model">ms.request.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Correlative"/>
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <group>
+                        <group string="Data applicant">
+                            <field name="partner_id" string="Applicant"/>
+                            <field name="description_property" invisible="1"/>
+                            <field name="request_type" invisible="1"/>
+                            <field name="area_id" />
+                            <field name="project" />
+                            <field name="activity_code" />
+                            <field name="reference" invisible="request_type not in ['payment', 'render']"/>
+                            <field name="res_bank_id" invisible="request_type not in ['payment', 'render']"/>
+                            <field name="account_number" invisible="request_type not in ['payment', 'render']"/>
+                            <field name="account_number_detraction" invisible="request_type not in ['payment', 'render']" />
+                        </group>
+                        <group string="Data Request">
+                            <field name="res_currency_id" />
+                            <field name="voucher_number" />
+                            <field name="rate" />
+                            <field name="date" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Requests Lines">
+                            <field name="requests_lines_ids" context="{'type': request_type}">
+                                <list>
+                                    <field name="partner_id" string="RUC"/>
+                                    <field name="document_type_id" column_invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                    <field name="series" column_invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                    <field name="receipt_number" column_invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                    <field name="date" column_invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                    <field name="amount"/>
+                                    <field name="details" />
+                                </list>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group >
+                                                <field name="partner_id" string="RUC" />
+                                                <field name="series" invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                                <field name="date" invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                            </group>
+                                            <group >
+                                                <field name="document_type_id" invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                                <field name="receipt_number" invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                                <field name="amount" />                                                
+                                            </group>
+                                        </group>
+                                        <group >
+                                            <field name="details" />
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <div style="margin-left: auto;">
+                            <h1><label for="amount" string="Amount:"/></h1>
+                            <h1><field name="amount" /></h1>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- VIEWS PAYMENTS -->
+    <record id="action_ms_requests_management" model="ir.actions.act_window">
+        <field name="name">Request payment</field>
+        <field name="res_model">ms.request.management</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('request_type', '=', 'payment')]</field>
+        <field name="context">{'default_request_type': 'payment'}</field>
+    </record>
+
+     <!-- VIEWS TO RENDER -->
+    <record id="action_ms_requests_management_to_render" model="ir.actions.act_window">
+        <field name="name">To Render</field>
+        <field name="res_model">ms.request.management</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('request_type', '=', 'render')]</field>
+        <field name="context">{'default_request_type': 'render'}</field>
+    </record>
+
+    <!-- VIEWS SURRENDERS -->
+    <record id="action_ms_requests_management_surrenders" model="ir.actions.act_window">
+        <field name="name">Surrenders</field>
+        <field name="res_model">ms.request.management</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('request_type', '=', 'surrenders')]</field>
+        <field name="context">{'default_request_type': 'surrenders'}</field>
+    </record>
+
+    <!-- VIEWS CONTRACTS -->
+    <record id="action_ms_requests_management_contract" model="ir.actions.act_window">
+        <field name="name">Contract / OS</field>
+        <field name="res_model">ms.request.management</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('request_type', '=', 'contract')]</field>
+        <field name="context">{'default_request_type': 'contract'}</field>
+    </record>
+</odoo>
