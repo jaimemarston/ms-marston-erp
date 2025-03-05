@@ -1,0 +1,98 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* faith_and_joy_requests
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250207\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-03 18:18+0000\n"
+"PO-Revision-Date: 2025-03-03 18:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__id
+msgid "ID"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields.selection,name:faith_and_joy_requests.selection__fajr_request_management__request_type__invoice_client
+msgid "Invoice client"
+msgstr "Factura de cliente"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields.selection,name:faith_and_joy_requests.selection__fajr_request_management__request_type__invoice_provider
+msgid "Invoice provider"
+msgstr "Factura de proveedor"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model,name:faith_and_joy_requests.model_fajr_request_management
+msgid "Modelo para gestinar las solicitudes"
+msgstr ""
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields.selection,name:faith_and_joy_requests.selection__fajr_request_management__request_type__payment_client
+msgid "Payment client"
+msgstr "Pago de cliente"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields.selection,name:faith_and_joy_requests.selection__fajr_request_management__request_type__payment_provider
+msgid "Payment provider"
+msgstr "Pago de proveedor"
+
+#. module: faith_and_joy_requests
+#: model:ir.actions.act_window,name:faith_and_joy_requests.action_fajr_requests_management
+#: model:ir.ui.menu,name:faith_and_joy_requests.faith_and_joy_requests_menu_root
+#: model_terms:ir.ui.view,arch_db:faith_and_joy_requests.fajr_request_management_view_list
+msgid "Requests"
+msgstr "Solicitudes"
+
+#. module: faith_and_joy_requests
+#: model:ir.ui.menu,name:faith_and_joy_requests.request_management_menu
+msgid "Request Management"
+msgstr "Gestión de solicitudes"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__request_type
+msgid "Request Type"
+msgstr "Tipo de solicitud"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__description
+msgid "description"
+msgstr "descripción"
+
+#. module: faith_and_joy_requests
+#: model:ir.model.fields,field_description:faith_and_joy_requests.field_fajr_request_management__name
+msgid "name"
+msgstr "Nombre"
