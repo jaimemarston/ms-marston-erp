@@ -287,6 +287,7 @@ msgstr "Datos de solicitud"
 
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_request_management__res_currency_id
+#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__res_currency_id
 msgid "Currency"
 msgstr "Moneda"
 
@@ -297,6 +298,7 @@ msgstr "Datos de solicitante"
 
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_request_management__rate
+#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__rate
 msgid "Rate"
 msgstr "Taza"
 
@@ -354,3 +356,23 @@ msgstr "Serie"
 #: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_view_form
 msgid "Accounting entries"
 msgstr "Asientos contables"
+
+#. module: ms_render_account_management
+#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__due_date
+msgid "Due date"
+msgstr "Fecha de Vencimiento"
+
+#. module: ms_render_account_management
+#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__retention
+msgid "Retention"
+msgstr "Rentención"
+
+#. module: ms_render_account_management
+#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__transaction_number
+msgid "Transaction number"
+msgstr "Número de transacción"
+
+#. module: ms_render_account_management
+#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__transaction_date
+msgid "Transaction date"
+msgstr "Fecha de transacción"

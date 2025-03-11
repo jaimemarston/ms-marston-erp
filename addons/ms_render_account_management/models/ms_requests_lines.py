@@ -13,5 +13,10 @@ class MsRequestsLines(models.Model):
     date = fields.Date('date')
     details = fields.Text('details')
     amount = fields.Float('amount')
-
     request_id = fields.Many2one('ms.request.management', string='request')
+    rate = fields.Float('Rate', digits=(16, 3))
+    transaction_date = fields.Date('Transaction date')
+    transaction_number = fields.Char('Transaction number')
+    res_currency_id = fields.Many2one('res.currency', string='Currency')
+    due_date = fields.Date('Due date')
+    retention = fields.Boolean('Retention')
