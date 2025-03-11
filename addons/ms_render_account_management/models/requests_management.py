@@ -23,7 +23,7 @@ class MsRequestManagement(models.Model):
     rate = fields.Float('Rate', digits=(16, 3))
     date = fields.Date('Date')
     voucher_number = fields.Char('Voucher number')
-    amount = fields.Float('Amount', compute="_compute_amount", digits=(16, 3))
+    amount = fields.Float('Amount', compute="_compute_amount")
 
     # --------------------
     # relational fields

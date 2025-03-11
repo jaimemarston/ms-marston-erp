@@ -12,6 +12,6 @@ class MsRequestsLines(models.Model):
     receipt_number = fields.Char('receipt number')
     date = fields.Date('date')
     details = fields.Text('details')
-    amount = fields.Float('amount', digits=(16, 3))
+    amount = fields.Float('amount')
 
     request_id = fields.Many2one('ms.request.management', string='request')

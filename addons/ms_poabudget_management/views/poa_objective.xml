@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="view_poa_objective_form" model="ir.ui.view">
+        <field name="name">poa.objective.form</field>
+        <field name="model">poa.objective</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Objective Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="poa_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Activities">
+                            <field name="poa_activity_ids" mode="list,form">
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_poa_objective_tree" model="ir.ui.view">
+        <field name="name">poa.objective.tree</field>
+        <field name="model">poa.objective</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="poa_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_poa_objective_search" model="ir.ui.view">
+        <field name="name">poa.objective.search</field>
+        <field name="model">poa.objective</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="poa_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Annual Operating Plan" name="group_by_poa" 
+                            context="{'group_by': 'poa_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_poa_objective" model="ir.actions.act_window">
+        <field name="name">Strategic Objectives</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">poa.objective</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    
+</odoo>

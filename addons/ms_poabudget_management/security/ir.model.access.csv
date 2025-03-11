@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_poa_plan,poa.plan,model_poa_plan,base.group_user,1,1,1,1
+access_poa_objective,poa.objective,model_poa_objective,base.group_user,1,1,1,1
+access_poa_entity,poa.entity,model_poa_entity,base.group_user,1,1,1,1
+access_poa_budget,poa.budget,model_poa_budget,base.group_user,1,1,1,1
+access_poa_activity,poa.activity,model_poa_activity,base.group_user,1,1,1,1

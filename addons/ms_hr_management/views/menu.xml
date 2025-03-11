@@ -23,16 +23,38 @@
     <menuitem id="menu_hr_reports" name="Reports" parent="menu_root_hr_empleoyees" sequence="60"/>
     <menuitem id="hr_employee_skill_report_menu" name="Skills" action="hr_skills.hr_employee_skill_report_action" parent="menu_hr_reports" sequence="10"/>
 
-    <menuitem id="mail.menu_root_discuss" name="Help Table"/>
 
-     <!-- hr Employees menu  -->
-    <record model="ir.ui.menu" id="hr.menu_hr_root">
-        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    <record id="hr_expense.menu_hr_expense_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
     </record>
+
+    <record id="spreadsheet_dashboard.spreadsheet_dashboard_menu_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+     <!-- Contactos  -->
+    <record model="ir.ui.menu" id="contacts.menu_contacts">
+        <field name="active" eval="False"/>
+    </record>
+
+     <!-- Mesa de Ayuda  -->
+    <record model="ir.ui.menu" id="mail.menu_root_discuss">
+        <field name="active" eval="False"/>
+    </record>
+
+    <!--  Rastreador de Enlances menu  -->
+    <record model="ir.ui.menu" id="utm.menu_link_tracker_root">
+        <field name="active" eval="False"/>
+    </record>
+
+    <!--  Empleados Antiguo menu  -->
+    <record model="ir.ui.menu" id="hr.menu_hr_root">
+        <field name="active" eval="False"/>
+    </record> 
 
     <!-- calendar menu  -->
     <record model="ir.ui.menu" id="calendar.mail_menu_calendar">
-        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+        <field name="active" eval="False"/>
     </record>
 
     <!-- apps menu  -->
