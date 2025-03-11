@@ -40,7 +40,7 @@
                         <group string="Data Request">
                             <field name="res_currency_id" />
                             <field name="voucher_number" />
-                            <field name="rate" />
+                            <field name="rate" options="{'digits': (16, 3)}"/>
                             <field name="date" />
                         </group>
                     </group>
@@ -76,6 +76,9 @@
                                     </sheet>
                                 </form>
                             </field>
+                        </page>
+                        <page string="Accounting entries">
+                            <field name="account_move_ids_ids" />
                         </page>
                     </notebook>
                     <div style="display: flex; justify-content: flex-end;">

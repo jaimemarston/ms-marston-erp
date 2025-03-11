@@ -20,10 +20,10 @@ class MsRequestManagement(models.Model):
     project = fields.Char('project')
     activity_code = fields.Char('activity code')
     reference = fields.Char('Reference')
-    rate = fields.Float('Rate')
+    rate = fields.Float('Rate', digits=(16, 3))
     date = fields.Date('Date')
     voucher_number = fields.Char('Voucher number')
-    amount = fields.Float('Amount', compute="_compute_amount")
+    amount = fields.Float('Amount', compute="_compute_amount", digits=(16, 3))
 
     # --------------------
     # relational fields
@@ -44,6 +44,8 @@ class MsRequestManagement(models.Model):
     description_property = fields.Text('description property')
     tdr = fields.Char('TDR')
     responsible = fields.Char('responsible')
+
+    account_move_ids_ids = fields.One2many('account.move', 'render_account_id', string='account move')
 
     @api.depends('area_id', 'activity_code')
     def _compute_name(self):

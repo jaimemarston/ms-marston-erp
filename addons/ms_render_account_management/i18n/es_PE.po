@@ -18,7 +18,7 @@ msgstr ""
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_request_management__area_id
 msgid "Area"
-msgstr "área"
+msgstr "Area"
 
 #. module: ms_render_account_management
 #: model:ir.model.fields.selection,name:ms_render_account_management.selection__ms_request_management__request_type__contract
@@ -349,3 +349,8 @@ msgstr "Lineas de solicitud"
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__series
 msgid "series"
 msgstr "Serie"
+
+#. module: ms_render_account_management
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_view_form
+msgid "Accounting entries"
+msgstr "Asientos contables"
