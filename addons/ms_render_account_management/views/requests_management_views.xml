@@ -19,6 +19,11 @@
         <field name="model">ms.request.management</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button string="Validar" name="action_valited_request" type="object" class="oe_highlight"/>
+                    <button string="Rechazar" name="decline_request" type="object" class="oe_highlight" invisible="status not in ['stage_2', 'stage_3']"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <label for="name" string="Correlative"/>
@@ -38,14 +43,15 @@
                             <field name="account_number_detraction" invisible="request_type not in ['payment', 'render']" />
                         </group>
                         <group string="Data Request">
-                            <field name="res_currency_id" />
-                            <field name="voucher_number" />
-                            <field name="rate" string="T/Cambio" />
+                            <field name="res_currency_id" invisible="request_type in ['contract', 'os', 'oc']"/>
+                            <field name="voucher_number" invisible="request_type in ['contract', 'os', 'oc']"/>
+                            <field name="rate" string="T/Cambio" invisible="request_type in ['contract', 'os', 'oc']"/>
                             <field name="date" />
+                            <field name="service_id" string="Servicio" invisible="request_type not in ['contract', 'os', 'oc']"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="Requests Lines">
+                        <page string="Requests Lines" invisible="request_type in ['contract', 'os', 'oc']">
                             <field name="requests_lines_ids" context="{'type': request_type}">
                                 <list>
                                     <field name="partner_id" string="RUC"/>
@@ -83,8 +89,52 @@
                                 </form>
                             </field>
                         </page>
-                        <page string="Accounting entries">
+                        <page string="Accounting entries" invisible="request_type in ['contract', 'os', 'oc']">
                             <field name="account_move_ids_ids" />
+                        </page>
+                        <page string="Documentos" invisible="request_type not in ['contract', 'os', 'oc']">
+                            <group>
+                                <group>
+                                    <field name="dni" string="DNI"/>
+                                    <field name="rh" string="DJ (RH)"/>
+                                    <field name="ruc_tab" string="Ficha RUC"/>
+                                </group>
+                                <group>
+                                    <field name="suspension" string="Suspensión"/>
+                                    <field name="cv" string="CV"/>
+                                    <field name="power_validity" string="Vigencia Poder"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Terminos de referencia" invisible="request_type not in ['contract', 'os', 'oc']">
+                            <group >
+                                <group>
+                                    <field name="general_objectives" string="Objetivo general" />
+                                    <field name="specific_objectives" string="Objetivo espesifico"/>
+                                    <field name="address_service" string="Lugar y forma del servicio" />
+                                    <field name="person_profile" string="Perfil de la persona natural o juridica"/>
+                                </group>
+                                <group string="Periodo del servicio">
+                                    <field name="date_of" string="Del: "/>
+                                    <field name="date_to" string="Al: "/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Forma de Pagos del servicio" invisible="request_type not in ['contract', 'os', 'oc']">
+                            <field name="payments_request_ids" >
+                                <list string="Pagos">
+                                    <field name="date" string="Fecha"/>
+                                    <field name="details" string="Concepto de pago"/>
+                                    <field name="amount" string="Monto"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <field name="date" string="Fecha"/>
+                                        <field name="details" string="Concepto de pago"/>
+                                        <field name="amount" string="Monto" />
+                                    </group>
+                                </form>
+                            </field>
                         </page>
                     </notebook>
                     <div style="display: flex; justify-content: flex-end;">
@@ -127,10 +177,24 @@
 
     <!-- VIEWS CONTRACTS -->
     <record id="action_ms_requests_management_contract" model="ir.actions.act_window">
-        <field name="name">Contract / OS</field>
+        <field name="name">OS</field>
         <field name="res_model">ms.request.management</field>
         <field name="view_mode">list,form</field>
         <field name="domain">[('request_type', '=', 'contract')]</field>
         <field name="context">{'default_request_type': 'contract'}</field>
+    </record>
+    <record id="action_ms_requests_management_os" model="ir.actions.act_window">
+        <field name="name">OS</field>
+        <field name="res_model">ms.request.management</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('request_type', '=', 'os')]</field>
+        <field name="context">{'default_request_type': 'os'}</field>
+    </record>
+    <record id="action_ms_requests_management_oc" model="ir.actions.act_window">
+        <field name="name">OC</field>
+        <field name="res_model">ms.request.management</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('request_type', '=', 'oc')]</field>
+        <field name="context">{'default_request_type': 'oc'}</field>
     </record>
 </odoo>
