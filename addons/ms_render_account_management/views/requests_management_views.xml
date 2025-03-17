@@ -96,11 +96,11 @@
                             <group>
                                 <group>
                                     <field name="dni" string="DNI"/>
-                                    <field name="rh" string="DJ (RH)"/>
+                                    <field name="rh" string="DJ (RH)" invisible="request_type not in ['os', 'oc']"/>
                                     <field name="ruc_tab" string="Ficha RUC"/>
                                 </group>
                                 <group>
-                                    <field name="suspension" string="Suspensión"/>
+                                    <field name="suspension" string="Suspensión" invisible="request_type not in ['os', 'oc']"/>
                                     <field name="cv" string="CV"/>
                                     <field name="power_validity" string="Vigencia Poder"/>
                                 </group>
@@ -117,6 +117,10 @@
                                 <group string="Periodo del servicio">
                                     <field name="date_of" string="Del: "/>
                                     <field name="date_to" string="Al: "/>
+                                </group>
+                                <group>
+                                    <field name="service_activities" string="Actividades del servicio a realizar"/>
+                                    <field name="accordance" string="Conformidad del servicio y trámite de pago"/>
                                 </group>
                             </group>
                         </page>

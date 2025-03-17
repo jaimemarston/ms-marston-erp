@@ -43,6 +43,9 @@ class MsRequestManagement(models.Model):
     person_profile = fields.Text('person profile')
     date_to = fields.Date('date to')
     date_of = fields.Date('date of')
+    service_activities = fields.Text('service activities')
+    accordance = fields.Text('accordance')
+    
     # ---- DOCUMENTS FIELDS ----
 
     dni = fields.Binary('DNI')
