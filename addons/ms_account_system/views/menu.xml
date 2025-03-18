@@ -35,11 +35,22 @@
 
     <!-- Reportes Financieros -->
     <menuitem id="menu_finance_reports" name="Reportes Financieros" sequence="40"  parent="menu_root"/>
-    <menuitem id="menu_accounting_reports" name="Reportes Contables" sequence="10"  parent="menu_finance_reports"/>
-    <menuitem id="menu_basic_accounting_reports" name="Reportes Básicos de Contabilidad" action="account.action_account_invoice_report_all" sequence="10"  parent="menu_accounting_reports"/>
+    <menuitem id="account.menu_finance_reports" name="Reportes Contables" sequence="10"  parent="menu_finance_reports"/>
     <menuitem id="menu_budget_reports" name="Reportes Presupuestarios" sequence="20"  parent="menu_finance_reports"/>
+
+    <menuitem id="account.menu_finance_configuration" name="Configuración" sequence="50"  parent="menu_root"/>
 
     <record id="hr_expense.menu_hr_expense_root" model="ir.ui.menu">
         <field name="active" eval="False"/>
     </record>
+
+    <menuitem id="menu_asset_fixed" name="Activo Fijo" sequence="38"/>
+    <menuitem id="om_account_asset.menu_action_account_asset_asset_form" name="Registro de Activos" sequence="10" parent="menu_asset_fixed"/>
+    <menuitem id="om_account_asset.menu_action_account_asset_asset_list_normal_purchase" name="Tipo de Activo" sequence="20" parent="menu_asset_fixed"/>
+    <menuitem id="menu_calculation_asset_fixed" name="Calculo" sequence="30" parent="menu_asset_fixed"/>
+    <menuitem id="om_account_asset.menu_asset_depreciation_confirmation_wizard" name="Genera Depreciación" sequence="10" parent="menu_calculation_asset_fixed"/>
+    <menuitem id="menu_report_asset_fixed" name="Reportes" sequence="40" parent="menu_asset_fixed"/>
+    <menuitem id="om_account_asset.menu_action_asset_asset_report" name="Genera Depreciación" sequence="10" parent="menu_report_asset_fixed"/>
+        
+
 </odoo>

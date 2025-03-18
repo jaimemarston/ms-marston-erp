@@ -13,6 +13,7 @@
         'contacts',
         'l10n_latam_invoice_document',
         'hr_expense',
+        'om_account_accountant'
     ],
     'data': [
         'security/ir.model.access.csv',  # Primero los permisos
