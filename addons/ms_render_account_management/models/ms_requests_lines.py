@@ -50,7 +50,7 @@ class MsRequestsLines(models.Model):
             # 'account_id': cuenta_credito_id,
             'partner_id': socio_id,
             'debit': 0.0,
-            # 'credit': monto,
+            'credit': monto,
             'name': 'Crédito',},
         ]
         self.env['account.move.line'].create(data)
