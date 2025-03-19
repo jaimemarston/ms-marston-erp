@@ -75,7 +75,7 @@ class MsRequestManagement(models.Model):
     tdr = fields.Char('TDR')
     responsible = fields.Char('responsible')
 
-    account_move_ids_ids = fields.One2many('account.move', 'render_account_id', string='account move')
+    account_move_ids = fields.One2many('account.move', 'render_account_id', string='account move')
 
     @api.depends('area_id', 'activity_code')
     def _compute_name(self):
