@@ -6,5 +6,6 @@ class msRequestSettings(models.Model):
     
     name = fields.Char('name')
     type = fields.Selection([
-        ('areas', 'areas')
+        ('areas', 'areas'),
+        ('service', 'Service'),
     ], string='type')
