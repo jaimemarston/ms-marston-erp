@@ -1,10 +1,9 @@
-from odoo import models, fields
+from odoo import api, fields, models, Command, _
 
-import logging
+
 class MsRequestsLines(models.Model):
     _name = 'ms.requests.lines'
     _description = 'Lineas de solicitudes'
-    
 
     partner_id = fields.Many2one('res.partner', string='partner')
     document_type_id = fields.Many2one('l10n_latam.document.type', string='document type')
@@ -25,34 +24,37 @@ class MsRequestsLines(models.Model):
 
     def create(self, vals):
         record = super().create(vals)
-        record.crear_asiento_contable(record.journal_id, record.document_type_id ,record.date, record.receipt_number, record.amount)
+        record.create_account_move(record.journal_id, record.document_type_id, record.date, record.receipt_number, record.amount)
         return record
-    
-    def crear_asiento_contable(self, journal_id, document_id,fecha, referencia, monto, socio_id=False):
-        # journal_id = self.env['account.journal'].search([('code', '=', 'MISC')])
-        asiento = self.env['account.move'].create({
-            'date': fecha,
-            'ref': referencia,
+
+    def create_account_move(self, journal_id, document_id, date, ref, amount, socio_id=False):
+        move_vals = {
+            'move_type': 'entry',
+            'date': date,
+            'ref': ref,
             'render_account_id': self.request_id.id,
             'journal_id': journal_id.id,
             'l10n_latam_document_type_id': document_id.id,
             'l10n_latam_document_number': str(document_id.code) + str(self.id),
-        })
-        data = [
-            {'move_id': asiento.id,
-            'account_id': journal_id.default_account_id.id,
-            'partner_id': socio_id,
-            'debit': monto,
-            'credit': 0.0,
-            # 'tax_ids': [(6,0,[])],
-            'name': 'Débito',},
-            {'move_id': asiento.id,
-            # 'account_id': cuenta_credito_id,
-            'partner_id': socio_id,
-            'debit': 0.0,
-            'credit': monto,
-            'name': 'Crédito',},
+            'line_ids': [],
+        }
+        line_vals = [
+            {
+                'account_id': journal_id.default_account_id.id,
+                'partner_id': socio_id,
+                'debit': amount,
+                'credit': 0.0,
+                'name': 'Débito',
+            },
+            {
+                #'account_id': cuenta_credito_id,
+                'partner_id': socio_id,
+                'debit': 0.0,
+                'credit': amount,
+                'name': 'Crédito',
+            },
         ]
-        self.env['account.move.line'].create(data)
-        asiento.action_post()
-        return asiento.id
+        move_vals['line_ids'] += [Command.create(vals) for vals in line_vals]
+        move_created = self.env['account.move'].create(move_vals)
+        move_created._post(soft=False)
+        return move_created
