@@ -13,7 +13,7 @@
     <menuitem id="request_surrenders_menu" name="Surrenders" sequence="10" action="action_ms_requests_management_surrenders" parent="ms_management_menu"/>
     <menuitem id="request_documents_menu" name="Documentos" sequence="12"  parent="faith_and_joy_requests_menu_root"/>
     <menuitem id="request_contracts_menu" name="Contratos" action="action_ms_requests_management_contract" parent="request_documents_menu" sequence="10"/>
-    <menuitem id="request_os_menu" name="O.S" sequence="12" action="action_ms_requests_management_os" parent="request_documents_menu"/>
-    <menuitem id="request_oc_menu" name="O.C" sequence="12" action="action_ms_requests_management_oc" parent="request_documents_menu"/>
+    <menuitem id="request_os_menu" name="Orden de Servicio" sequence="12" action="action_ms_requests_management_os" parent="request_documents_menu"/>
+    <menuitem id="request_oc_menu" name="Orden de compra" sequence="12" action="action_ms_requests_management_oc" parent="request_documents_menu"/>
 
 </odoo>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ms_request_management_os_view_list" model="ir.ui.view">
+            <field name="name">ms.request.management.view.list</field>
+            <field name="model">ms.request.management</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name" string="Correlative" />
+                    <field name="partner_id" string="Applicant" />
+                    <field name="request_type" />
+                    <field name="amount" />
+                </list>
+            </field>
+        </record>
+
+        <record id="ms_request_management_os_view_form" model="ir.ui.view">
+            <field name="name">ms.request.management.view.form</field>
+            <field name="model">ms.request.management</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Validar" name="action_valited_request" type="object" class="oe_highlight"/>
+                        <button string="Rechazar" name="decline_request" type="object" class="oe_highlight" invisible="status not in ['stage_2', 'stage_3']"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Correlative"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group string="Data applicant">
+                                <field name="partner_id" string="Applicant"/>
+                                <field name="description_property" invisible="1"/>
+                                <field name="request_type" invisible="1"/>
+                                <field name="area_id"/>
+                                <field name="project" />
+                                <field name="activity_code" />
+                            </group>
+                            <group string="Data Request">
+                                <field name="date" />
+                                <field name="service_id" string="Servicio" invisible="request_type not in ['contract', 'os', 'oc']"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Documentos" invisible="request_type not in ['contract', 'os', 'oc']">
+                                <group>
+                                    <group>
+                                        <field name="dni" string="DNI"/>
+                                        <field name="rh" string="DJ (RH)" invisible="request_type not in ['os', 'oc']"/>
+                                        <field name="ruc_tab" string="Ficha RUC"/>
+                                    </group>
+                                    <group>
+                                        <field name="suspension" string="Suspensión" invisible="request_type not in ['os', 'oc']"/>
+                                        <field name="cv" string="CV"/>
+                                        <field name="power_validity" string="Vigencia Poder"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Terminos de referencia" invisible="request_type not in ['contract', 'os', 'oc']">
+                                <group >
+                                    <group>
+                                        <field name="general_objectives" string="Objetivo general" />
+                                        <field name="specific_objectives" string="Objetivo espesifico"/>
+                                        <field name="address_service" string="Lugar y forma del servicio" />
+                                        <field name="person_profile" string="Perfil de la persona natural o juridica"/>
+                                    </group>
+                                    <group string="Periodo del servicio">
+                                        <field name="date_of" string="Del: "/>
+                                        <field name="date_to" string="Al: "/>
+                                    </group>
+                                    <group>
+                                        <field name="service_activities" string="Actividades del servicio a realizar"/>
+                                        <field name="accordance" string="Conformidad del servicio y trámite de pago"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Forma de Pagos del servicio" invisible="request_type not in ['contract', 'os', 'oc']">
+                                <field name="payments_request_ids" >
+                                    <list string="Pagos">
+                                        <field name="date" string="Fecha"/>
+                                        <field name="details" string="Concepto de pago"/>
+                                        <field name="amount" string="Monto"/>
+                                    </list>
+                                    <form>
+                                        <group>
+                                            <field name="date" string="Fecha"/>
+                                            <field name="details" string="Concepto de pago"/>
+                                            <field name="amount" string="Monto" />
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <div style="margin-left: auto;">
+                                <h1><label for="amount" string="Amount:"/></h1>
+                                <h1><field name="amount" /></h1>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_ms_requests_management_os" model="ir.actions.act_window">
+            <field name="name">Ordenes de servicio</field>
+            <field name="res_model">ms.request.management</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('request_type', '=', 'os')]</field>
+            <field name="context">{'default_request_type': 'os'}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_ms_requests_os">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="ms_request_management_os_view_form"/>
+            <field name="act_window_id" ref="action_ms_requests_management_os"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_ms_requests_os_list">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="ms_request_management_os_view_list"/>
+            <field name="act_window_id" ref="action_ms_requests_management_os"/>
+        </record>
+    </data>
+    
+</odoo>
