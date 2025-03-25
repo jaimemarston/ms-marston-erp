@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="requests_payment_product_service" model="product.template">
+        <field name="name">Solicitud de pago</field>
+        <field name="categ_id" ref="product.product_category_1"/>
+        <field name="list_price">0</field>
+        <field name="type">service</field>
+        <field name="default_code">001</field>
+        <field name="taxes_id" eval="[(5,)]" />
+    </record>
+
+
+</odoo>

@@ -13,6 +13,8 @@
         'views/requests_to_render_views.xml',
         'views/requests_surrenders_views.xml',
         'views/menus_views.xml',
+
+        'data/product_data.xml',
     ],
     'license': 'OPL-1',
 }
