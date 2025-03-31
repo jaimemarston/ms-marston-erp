@@ -55,17 +55,21 @@ class MsRequestManagement(models.Model):
     cv = fields.Binary('cv')
     power_validity = fields.Binary('Power validity')
 
+    # --- DOCUEMENTS PAYEMENTS REQUESTS --
+    format_eight = fields.Binary('Formato N°8')
+    format_nine = fields.Binary('Formato N°9')
     # --------------------
     # relational fields
     # --------------------
-    partner_id = fields.Many2one('res.partner', string='partner')
+    os_id = fields.Many2one('ms.request.management', string='os')
+    partner_id = fields.Many2one('res.partner', string='partner', compute="_compute_partner", readonly=False, store=True)
     res_bank_id = fields.Many2one('res.bank', string='Bank')
     area_id = fields.Many2one('ms.request.settings', string='Area', domain="[('type', '=', 'areas')]")
     requests_lines_ids = fields.One2many('ms.requests.lines', 'request_id', string='requests lines')
     res_currency_id = fields.Many2one('res.currency', string='Currency')
     service_id = fields.Many2one('ms.request.settings', string='service', domain="[('type', '=', 'service')]")
     payments_request_ids = fields.One2many('ms.payment.requests', 'request_id', string='payments')
-
+    treasury_id = fields.Many2one('ms.treasury', string='Tesoreria')
 
     # dni = fields.Char('dni')  
     correlative = fields.Char('correlative')
@@ -76,7 +80,16 @@ class MsRequestManagement(models.Model):
     responsible = fields.Char('responsible')
 
     account_move_ids = fields.One2many('account.move', 'render_account_id', string='account move')
+    
+    @api.depends('os_id')
+    def _compute_partner(self):
+        for record in self:
+            if record.request_type == 'payment':
+                if record.os_id and record.os_id.partner_id.id:
+                    logging.info(record.os_id.partner_id)
+                    logging.info('\n' * 5)
 
+                    record.partner_id = record.os_id.partner_id
     @api.depends('area_id', 'activity_code')
     def _compute_name(self):
         for record in self:
@@ -107,3 +120,25 @@ class MsRequestManagement(models.Model):
 
     def decline_request(self):
         self.status = 'draft'
+
+    @api.model
+    def create(self, vals):
+        record = super().create(vals)
+        treasury_id = self.env['ms.treasury'].create({
+            'project': record.project,
+            'activity_code': record.activity_code,
+            'reference' : record.reference,
+            'rate': record.rate,
+            'date': record.date,
+            'voucher_number': record.voucher_number,
+            'amount': record.amount,
+            'account_number': record.account_number,
+            'os_id': record.os_id.id,
+            'partner_id': record.partner_id.id,
+            'res_bank_id': record.res_bank_id.id,
+            'area_id': record.area_id.id,
+            'request_payment_id': record.id,
+            'res_currency_id': record.res_currency_id.id
+        })
+        record.treasury_id = treasury_id.id
+        return record

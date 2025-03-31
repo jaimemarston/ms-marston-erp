@@ -12,6 +12,8 @@
         'views/requests_oc_views.xml',
         'views/requests_to_render_views.xml',
         'views/requests_surrenders_views.xml',
+        'views/account_move_views.xml',
+        'views/treasury_views.xml',
         'views/menus_views.xml',
 
         'data/product_data.xml',

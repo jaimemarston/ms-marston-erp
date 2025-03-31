@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="ms_treasury_view_list" model="ir.ui.view">
+        <field name="name">ms.treasury.view.list</field>
+        <field name="model">ms.treasury</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="request_payment_id"/>
+                <field name="partner_id" string="Applicant" />
+                <field name="amount" />
+            </list>
+        </field>
+    </record>
+
+    <record id="ms_treasury_view_form" model="ir.ui.view">
+        <field name="name">ms.treasury.view.form</field>
+        <field name="model">ms.treasury</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group string="Datos de Aplicante">
+                            <field name="request_payment_id" />
+                            <field name="os_id" domain="[('request_type', '=', 'os')]"/>
+                            <field name="partner_id" string="Applicant"/>
+                            <field name="area_id"/>
+                            <field name="project" />
+                            <field name="activity_code" />
+                            <field name="reference" />
+                            <field name="res_bank_id" />
+                            <field name="account_number" />
+                            <field name="account_number_detraction"  />
+                        </group>
+                        <group string="Datos de Solicitud">
+                            <field name="res_currency_id" />
+                            <field name="voucher_number"/>
+                            <field name="rate" string="T/Cambio" />
+                            <field name="date" />
+                            <field name="amount" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ms_treasury_action" model="ir.actions.act_window">
+        <field name="name">Tesoreria</field>
+        <field name="res_model">ms.treasury</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

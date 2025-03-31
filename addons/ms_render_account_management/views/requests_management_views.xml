@@ -30,7 +30,8 @@
                         <h1><field name="name" /></h1>
                     </div>
                     <group>
-                        <group string="Data applicant">
+                        <group string="Datos de Aplicante">
+                            <field name="os_id" domain="[('request_type', '=', 'os')]"/>
                             <field name="partner_id" string="Applicant"/>
                             <field name="request_type" invisible="0"/>
                             <field name="area_id"/>
@@ -41,11 +42,13 @@
                             <field name="account_number" />
                             <field name="account_number_detraction"  />
                         </group>
-                        <group string="Data Request">
+                        <group string="Datos de Solicitud">
                             <field name="res_currency_id" />
                             <field name="voucher_number"/>
                             <field name="rate" string="T/Cambio" />
                             <field name="date" />
+                            <field name="format_eight" />
+                            <field name="format_nine" />
                         </group>
                     </group>
                     <notebook>
@@ -88,7 +91,7 @@
                                 </form>
                             </field>
                         </page>
-                        <page string="Accounting entries" invisible="request_type in ['contract', 'os', 'oc']">
+                        <page string="Accounting entries" invisible="request_type in ['contract', 'os', 'oc'] or status not in ['stage_3', 'stage_2']">
                             <field name="account_move_ids" />
                         </page>
                     </notebook>
