@@ -84,6 +84,7 @@
                             <h1><field name="amount" /></h1>
                         </div>
                     </div>
+                    <chatter/>
                 </sheet>
             </form>
         </field>
