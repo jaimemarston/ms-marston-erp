@@ -8,6 +8,8 @@
                 <field name="request_payment_id"/>
                 <field name="partner_id" string="Applicant" />
                 <field name="amount" />
+                <!-- Etiqueta de estado en la vista de lista -->
+                <field name="status_html" widget="html" string="status"/>
             </list>
         </field>
     </record>
@@ -37,6 +39,7 @@
                             <field name="rate" string="T/Cambio" />
                             <field name="date" />
                             <field name="amount" />
+                            <field name="status" string="Estado de Pago"/>
                         </group>
                     </group>
                 </sheet>

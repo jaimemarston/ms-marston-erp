@@ -4,6 +4,7 @@ import logging
 class MsRequestManagement(models.Model):
     _name = 'ms.request.management'
     _description = 'Modelo para gestinar las solicitudes'
+    _inherit = 'mail.thread'
 
     TYPES_REQUEST = [
         ('payment', 'Payment'),
@@ -16,10 +17,15 @@ class MsRequestManagement(models.Model):
     ]
 
     STATES = [
-        ('draft', 'Draft'),
-        ('stage_1', 'Stage 1'),
-        ('stage_2', 'Stage 2'),
-        ('stage_3', 'Stage 3'),
+        ('draft', 'V°B° Solicitante'),
+        ('stage_1', 'V°B° Jefatura'),
+        ('stage_2', 'V°B° Direccion'),
+        ('stage_3', 'V°B° Contable'),
+        ('stage_4', 'V°B° Logistica'),
+        ('stage_5', 'V°B Tesoreria'),
+        
+        
+        
     ]
     # --------------------
     # fields

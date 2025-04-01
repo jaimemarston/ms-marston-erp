@@ -21,3 +21,22 @@ class MsTreasury(models.Model):
     area_id = fields.Many2one('ms.request.settings', string='Area', domain="[('type', '=', 'areas')]")
     request_payment_id = fields.Many2one('ms.request.management', string='Solicitud de pago')
     res_currency_id = fields.Many2one('res.currency', string='Currency')
+    status = fields.Selection([
+        ('pending', 'Pendiente de pago'),
+        ('paid', 'Pagado'),
+        ('cancelled', 'Cancelado')
+    ], string='Estado', default='pending')
+        # Este es el campo que contendrá el HTML para el estado
+    status_html = fields.Html(string='Estado HTML', compute='_compute_status_html')
+
+    @api.depends('status')
+    def _compute_status_html(self):
+        for record in self:
+            if record.status == 'pending':
+                record.status_html = '<span class="badge rounded-pill text-bg-warning">Pendiente de pago</span>'
+            elif record.status == 'paid':
+                record.status_html = '<span class="badge rounded-pill text-bg-success">Pagado</span>'
+            elif record.status == 'cancelled':
+                record.status_html = '<span class="badge rounded-pill text-bg-danger">Cancelado</span>'
+            else:
+                record.status_html = ''
