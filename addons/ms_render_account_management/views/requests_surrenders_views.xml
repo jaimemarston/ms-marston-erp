@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ms_request_management_surrenders_view_list" model="ir.ui.view">
+            <field name="name">ms.request.management.view.list</field>
+            <field name="model">ms.request.management</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name" string="Correlative" />
+                    <field name="partner_id" string="Applicant" />
+                    <field name="request_type" />
+                    <field name="amount" />
+                </list>
+            </field>
+        </record>
+
+        <record id="ms_request_management_surrenders_view_form" model="ir.ui.view">
+            <field name="name">ms.request.management.view.form</field>
+            <field name="model">ms.request.management</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Validar" name="action_valited_request" type="object" class="oe_highlight"/>
+                        <button string="Rechazar" name="decline_request" type="object" class="oe_highlight" invisible="status not in ['stage_2', 'stage_3']"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Correlative"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group string="Data applicant">
+                                <field name="partner_id" string="Applicant"/>
+                                <field name="request_type" invisible="1"/>
+                                <field name="area_id"/>
+                                <field name="project" />
+                                <field name="date" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Requests Lines" invisible="request_type in ['contract', 'os', 'oc']">
+                                <field name="requests_lines_ids" context="{'type': request_type}">
+                                    <list>
+                                        <field name="partner_id" string="RUC"/>
+                                        <field name="document_type_id" />
+                                        <field name="series" />
+                                        <field name="receipt_number" />
+                                        <field name="date" />
+                                        <field name="amount"/>
+                                        <field name="details" />
+                                    </list>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group >
+                                                    <field name="partner_id" string="RUC" />
+                                                    <field name="document_type_id" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
+                                                    <field name="series" invisible="context.get('type') not in ['payment', 'surrenders']"/>
+                                                    <field name="receipt_number" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
+                                                    <field name="journal_id" />
+                                                </group>
+                                                <group >
+                                                    <field name="date" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
+                                                    <field name="amount"/>
+                                                    <field name="rate" string="T/Cambio"/>
+                                                    <field name="res_currency_id" />
+                                                    <field name="transaction_number" required="1"/>
+                                                    <field name="transaction_date" />
+                                                    <field name="due_date" />
+                                                    <field name="retention" />
+                                                </group>
+                                            </group>
+                                            <group >
+                                                <field name="details" />
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <div style="margin-left: auto;">
+                                <h1><label for="amount" string="Amount:"/></h1>
+                                <h1><field name="amount" /></h1>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- VIEWS SURRENDERS -->
+        <record id="action_ms_requests_management_surrenders" model="ir.actions.act_window">
+            <field name="name">Surrenders</field>
+            <field name="res_model">ms.request.management</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('request_type', '=', 'surrenders')]</field>
+            <field name="context">{'default_request_type': 'surrenders'}</field>
+        </record>
+
+
+        <record model="ir.actions.act_window.view" id="action_ms_requests_surrenders_list">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="ms_request_management_surrenders_view_list"/>
+            <field name="act_window_id" ref="action_ms_requests_management_surrenders"/>
+        </record>
+        
+        <record model="ir.actions.act_window.view" id="action_ms_requests_surrenders_form">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="ms_request_management_surrenders_view_form"/>
+            <field name="act_window_id" ref="action_ms_requests_management_surrenders"/>
+        </record>
+    </data>
+    
+
+</odoo>

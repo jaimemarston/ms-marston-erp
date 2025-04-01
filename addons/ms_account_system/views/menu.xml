@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <!-- Menú Principal -->
-        <menuitem id="menu_root" name="Contabilidad" sequence="10"/>
+    <!-- Menú Principal -->
+    <menuitem id="menu_root" name="Contabilidad" sequence="10"/>
 
-        <!-- Submenú Agrupador: "Archivos Maestros" -->
-        <menuitem id="menu_master_files" name="Archivos Maestros" parent="menu_root" sequence="15"/>
+    <!-- Submenú Agrupador: "Archivos Maestros" -->
+    <menuitem id="menu_master_files" name="Archivos Maestros" parent="menu_root" sequence="15"/>
 
-        <!-- Submenús dentro de "Archivos Maestros" -->
-        <menuitem id="menu_action_account_form" name="Chart of accounts" action="account.action_account_form" sequence="10" parent="menu_master_files"/>
-        <menuitem id="menu_project_plan" name="Project Plan" action="action_project_plan" sequence="20" parent="menu_master_files"/>
-        <menuitem id="menu_business_plan" name="Item Plan" action="action_business_plan" sequence="30" parent="menu_master_files"/>
-        <menuitem id="menu_activity_plan" name="Activities plan" action="action_activity_plan" sequence="40" parent="menu_master_files"/>
-        <menuitem id="menu_action_currency_form" name="Exchange rates" action="base.action_currency_form" sequence="60" parent="menu_master_files"/>
-        <menuitem id="account_analytic_def_account" name="Cost center" action="analytic.action_account_analytic_account_form" sequence="70" parent="menu_master_files"/>
-        <menuitem id="res_partner_menu_contacts" name="Suppliers / Customers" action="contacts.action_contacts" sequence="80" parent="menu_master_files"/>
-        <menuitem id="menu_action_account_journal_form" name="Accounting Book / Origins" action="account.action_account_journal_form" sequence="90" parent="menu_master_files"/>
-        <menuitem id="menu_document_type" name="Document Types" action="l10n_latam_invoice_document.action_document_type" sequence="100" parent="menu_master_files"/>
-        <menuitem id="menu_action_tax_form" name="Taxes" action="account.action_tax_form" sequence="110" parent="menu_master_files"/>
-        <menuitem id="action_res_bank_form" name="Banks" action="base.action_res_bank_form" sequence="120" parent="menu_master_files"/>
+    <!-- Submenús dentro de "Archivos Maestros" -->
+    <menuitem id="menu_action_account_form" name="Plan de Cuentas" action="account.action_account_form" sequence="10" parent="menu_master_files"/>
+    <menuitem id="menu_project_plan" name="Plan de Proyectos" action="action_project_plan" sequence="20" parent="menu_master_files"/>
+    <menuitem id="menu_business_plan" name="Plan de Rubros" action="action_business_plan" sequence="30" parent="menu_master_files"/>
+    <menuitem id="menu_activity_plan" name="Plan de Actividades" action="action_activity_plan" sequence="40" parent="menu_master_files"/>
+    <menuitem id="menu_action_currency_form" name="Tipos de Cambio" action="base.action_currency_form" sequence="50" parent="menu_master_files"/>
+    <menuitem id="account_analytic_def_account" name="Centro de Costos" action="analytic.action_account_analytic_account_form" sequence="60" parent="menu_master_files"/>
+    <menuitem id="res_partner_menu_contacts" name="Proveedores / Clientes" action="contacts.action_contacts" sequence="70" parent="menu_master_files"/>
+    <menuitem id="menu_action_account_journal_form" name="Libros Contables / Orígenes" action="account.action_account_journal_form" sequence="80" parent="menu_master_files"/>
+    <menuitem id="menu_document_type" name="Tipos de Documento" action="l10n_latam_invoice_document.action_document_type" sequence="90" parent="menu_master_files"/>
+    <menuitem id="menu_action_tax_form" name="Impuestos" action="account.action_tax_form" sequence="100" parent="menu_master_files"/>
+    <menuitem id="action_res_bank_form" name="Bancos" action="base.action_res_bank_form" sequence="110" parent="menu_master_files"/>
 
-        <!-- Submenú Agrupador: "MOVIMIENTOS CONTABLES" -->
-        <menuitem id="menu_master_accounting" name="Accounting Transactions" sequence="30" parent="menu_root"/>
+    <!-- Submenú Agrupador: "MOVIMIENTOS CONTABLES" -->
+    <menuitem id="menu_master_accounting" name="Movimientos Contables" sequence="30" parent="menu_root"/>
 
-        <menuitem id="action_move_journal_line" name="Journal Entries" action="account.action_move_journal_line" sequence="10" parent="menu_master_accounting"/>
-        <menuitem id="menu_action_move_in_invoice_type" name="Providers - Bills" action="account.action_move_in_invoice_type" sequence="20" parent="menu_master_accounting"/>
-        <menuitem id="menu_action_account_payments_payable" name="Providers - Payments" action="account.action_account_payments_payable" sequence="30"  parent="menu_master_accounting"/>
+    <menuitem id="action_move_journal_line" name="Asientos Contables" action="account.action_move_journal_line" sequence="10" parent="menu_master_accounting"/>
+    <menuitem id="menu_action_move_in_invoice_type" name="Proveedores - Facturas de Compra" action="account.action_move_in_invoice_type" sequence="20" parent="menu_master_accounting"/>
+    <menuitem id="menu_action_account_payments_payable" name="Proveedores - Pagos" action="account.action_account_payments_payable" sequence="30"  parent="menu_master_accounting"/>
 
-        <menuitem id="menu_action_move_out_invoice_type" name="Customers - Invoices" action="account.action_move_out_invoice_type" sequence="40"  parent="menu_master_accounting"/>
-        <menuitem id="menu_action_account_payments_receivable" name="Customers - Payments" action="account.action_account_payments" sequence="50"  parent="menu_master_accounting"/>
-        <menuitem id="menu_action_action_res_bank_form" name="Banks" sequence="60"  parent="menu_master_accounting"/>
-        <menuitem id="menu_action_action_res_bank_form" name="Banks" sequence="70"  parent="menu_master_accounting"/>
-        <menuitem id="menu_action_surrender" name="Surrenders" sequence="80"  parent="menu_master_accounting"/>
-        <menuitem id="menu_hr_expense_root" name="Record of Surrenders (Expenses)" action="hr_expense.action_hr_expense_sheet_all" sequence="90"  parent="menu_action_surrender"/>
+    <menuitem id="menu_action_move_out_invoice_type" name="Clientes - Facturas" action="account.action_move_out_invoice_type" sequence="40"  parent="menu_master_accounting"/>
+    <menuitem id="menu_action_account_payments_receivable" name="Clientes - Pagos" action="account.action_account_payments" sequence="50"  parent="menu_master_accounting"/>
 
-        <menuitem id="menu_finance_reports" name="Reporting" sequence="40"  parent="menu_root"/>
-        <menuitem id="menu_accounting_reports" name="Accounting Reports" sequence="10"  parent="menu_finance_reports"/>
-        <menuitem id="menu_basic_accounting_reports" name="Basic Accounting Reports" action="account.action_account_invoice_report_all" sequence="10"  parent="menu_accounting_reports"/>
-        <menuitem id="menu_budget_reports" name="Budget Reports" sequence="20"  parent="menu_finance_reports"/>
+    <menuitem id="menu_action_banks" name="Bancos" action="base.action_res_bank_form" sequence="60"  parent="menu_master_accounting"/>
+    <menuitem id="menu_action_surrender" name="Rendiciones" sequence="70"  parent="menu_master_accounting"/>
+    <menuitem id="menu_hr_expense_root" name="Registro de Rendiciones (Gastos)" action="hr_expense.action_hr_expense_sheet_all" sequence="80"  parent="menu_action_surrender"/>
+
+    <!-- Reportes Financieros -->
+    <menuitem id="menu_finance_reports" name="Reportes Financieros" sequence="40"  parent="menu_root"/>
+    <menuitem id="account.menu_finance_reports" name="Reportes Contables" sequence="10"  parent="menu_finance_reports"/>
+    <menuitem id="menu_budget_reports" name="Reportes Presupuestarios" sequence="20"  parent="menu_finance_reports"/>
+
+    <menuitem id="account.menu_finance_configuration" name="Configuración" sequence="50"  parent="menu_root"/>
+
+    <record id="hr_expense.menu_hr_expense_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <menuitem id="menu_asset_fixed" name="Activo Fijo" sequence="38"/>
+    <menuitem id="om_account_asset.menu_action_account_asset_asset_form" name="Registro de Activos" sequence="10" parent="menu_asset_fixed"/>
+    <menuitem id="om_account_asset.menu_action_account_asset_asset_list_normal_purchase" name="Tipo de Activo" sequence="20" parent="menu_asset_fixed"/>
+    <menuitem id="menu_calculation_asset_fixed" name="Calculo" sequence="30" parent="menu_asset_fixed"/>
+    <menuitem id="om_account_asset.menu_asset_depreciation_confirmation_wizard" name="Genera Depreciación" sequence="10" parent="menu_calculation_asset_fixed"/>
+    <menuitem id="menu_report_asset_fixed" name="Reportes" sequence="40" parent="menu_asset_fixed"/>
+    <menuitem id="om_account_asset.menu_action_asset_asset_report" name="Genera Depreciación" sequence="10" parent="menu_report_asset_fixed"/>
+        
 
 </odoo>

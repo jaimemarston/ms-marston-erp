@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_ms_request_management_users,ms.request.management.users,model_ms_request_management,base.group_user,1,1,1,1
 access_ms_request_settings_users,ms.request.settings.users,model_ms_request_settings,base.group_user,1,1,1,1
 access_ms_requests_lines_users,ms.requests.lines.users,model_ms_requests_lines,base.group_user,1,1,1,1
+access_ms_payment_requests_users,ms.payment.requests.users,model_ms_payment_requests,base.group_user,1,1,1,1
+access_ms_treasury_users,ms.treasury.users,model_ms_treasury,base.group_user,1,1,1,1
