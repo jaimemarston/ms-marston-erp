@@ -36,12 +36,12 @@
                                 <field name="description_property" invisible="1"/>
                                 <field name="request_type" invisible="1"/>
                                 <field name="area_id"/>
-                                <field name="project" />
+                                <field name="project_id" />
                                 <field name="activity_code" />
                             </group>
                             <group string="Data Request">
                                 <field name="date" />
-                                <field name="service_id" string="Servicio" invisible="request_type not in ['contract', 'os', 'oc']"/>
+                                <field name="service_id" string="Compra" invisible="request_type not in ['contract', 'os', 'oc']"/>
                             </group>
                         </group>
                         <notebook>

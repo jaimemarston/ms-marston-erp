@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 import logging
+from datetime import date
 
 class MsRequestManagement(models.Model):
     _name = 'ms.request.management'
@@ -32,11 +33,11 @@ class MsRequestManagement(models.Model):
     # --------------------    
     name = fields.Char('name', compute="_compute_name")
     request_type = fields.Selection(TYPES_REQUEST, string='Request Type')
-    project = fields.Char('project')
+    project_id = fields.Many2one('account.analytic.account', string='project')
     activity_code = fields.Char('activity code')
     reference = fields.Char('Reference')
     rate = fields.Float('Rate', digits=(16, 3))
-    date = fields.Date('Date')
+    date = fields.Date('Fecha', default=lambda self: date.today())
     voucher_number = fields.Char('Voucher number')
     amount = fields.Float('Amount', compute="_compute_amount")
     account_number = fields.Char('account number')
@@ -70,10 +71,12 @@ class MsRequestManagement(models.Model):
     os_id = fields.Many2one('ms.request.management', string='os')
     partner_id = fields.Many2one('res.partner', string='partner', compute="_compute_partner", readonly=False, store=True)
     res_bank_id = fields.Many2one('res.bank', string='Bank')
-    area_id = fields.Many2one('ms.request.settings', string='Area', domain="[('type', '=', 'areas')]")
+    area_id = fields.Many2one('ms.account.system.settings', string='Area', domain="[('type', '=', 'areas')]")
     requests_lines_ids = fields.One2many('ms.requests.lines', 'request_id', string='requests lines')
-    res_currency_id = fields.Many2one('res.currency', string='Currency')
-    service_id = fields.Many2one('ms.request.settings', string='service', domain="[('type', '=', 'service')]")
+    res_currency_id = fields.Many2one('res.currency', string='Currency',
+                                      default=lambda self: self.env['res.currency'].search([('name', '=', 'PEN')], limit=1).id)
+    
+    service_id = fields.Many2one('ms.account.system.settings', string='service')
     payments_request_ids = fields.One2many('ms.payment.requests', 'request_id', string='payments')
     treasury_id = fields.Many2one('ms.treasury', string='Tesoreria')
 
@@ -131,7 +134,7 @@ class MsRequestManagement(models.Model):
     def create(self, vals):
         record = super().create(vals)
         treasury_id = self.env['ms.treasury'].create({
-            'project': record.project,
+            'project': record.project_id.name,
             'activity_code': record.activity_code,
             'reference' : record.reference,
             'rate': record.rate,
@@ -148,3 +151,11 @@ class MsRequestManagement(models.Model):
         })
         record.treasury_id = treasury_id.id
         return record
+    
+
+    @api.onchange('os_id')
+    def _onchange_os_id(self):
+        if self.os_id:
+            self.project_id = self.os_id.project_id
+        else:
+            self.project_id = False

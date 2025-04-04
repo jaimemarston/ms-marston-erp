@@ -37,7 +37,7 @@
                                     <field name="description_property" invisible="1"/>
                                     <field name="request_type" invisible="1"/>
                                     <field name="area_id"/>
-                                    <field name="project" />
+                                    <field name="project_id" />
                                     <field name="activity_code" />
                                 </group>
                                 <group string="Data Request">

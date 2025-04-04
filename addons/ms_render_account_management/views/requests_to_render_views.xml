@@ -3,9 +3,9 @@
 
     <data>
     
-        <record id="ms_request_management_to_render_view_list" model="ir.ui.view">
-            <field name="name">ms.request.management.view.list</field>
-            <field name="model">ms.request.management</field>
+        <record id="to_surrender_management_to_render_view_list" model="ir.ui.view">
+            <field name="name">to.surrender.management.view.list</field>
+            <field name="model">to.surrender.management</field>
             <field name="arch" type="xml">
                 <list>
                     <field name="name" string="Correlative" />
@@ -16,9 +16,9 @@
             </field>
         </record>
 
-        <record id="ms_request_management_to_render_view_form" model="ir.ui.view">
-            <field name="name">ms.request.management.view.form</field>
-            <field name="model">ms.request.management</field>
+        <record id="to_surrender_management_to_render_view_form" model="ir.ui.view">
+            <field name="name">to.surrender.management.view.form</field>
+            <field name="model">to.surrender.management</field>
             <field name="arch" type="xml">
                 <form>
                     <header>
@@ -36,51 +36,44 @@
                                 <field name="partner_id" string="Applicant"/>
                                 <field name="request_type" invisible="1"/>
                                 <field name="area_id"/>
-                                <field name="project" />
+                                <field name="project_id" />
                                 <field name="activity_code" />
-                                <field name="reference"/>
+                                <!-- <field name="reference"/> -->
                                 <field name="res_bank_id" />
                                 <field name="account_number" />
                                 <field name="account_number_detraction" />
                             </group>
                             <group string="Data Request">
+                                <field name="res_currency_id" />
                                 <field name="date" />
                                 <field name="service_id" string="Servicio" />
+                                <field name="amount" />
                             </group>
                         </group>
-                        
-                        <div style="display: flex; justify-content: flex-end;">
-                            <div style="margin-left: auto;">
-                                <h1><label for="amount" string="Amount:"/></h1>
-                                <h1><field name="amount" /></h1>
-                            </div>
-                        </div>
                     </sheet>
                 </form>
             </field>
         </record>
 
         <!-- VIEWS TO RENDER -->
-        <record id="action_ms_requests_management_to_render" model="ir.actions.act_window">
+        <record id="action_to_surrender_management_to_render" model="ir.actions.act_window">
             <field name="name">To Render</field>
-            <field name="res_model">ms.request.management</field>
+            <field name="res_model">to.surrender.management</field>
             <field name="view_mode">list,form</field>
-            <field name="domain">[('request_type', '=', 'render')]</field>
-            <field name="context">{'default_request_type': 'render'}</field>
         </record>
 
         <record model="ir.actions.act_window.view" id="action_ms_requests_to_render_form">
             <field name="sequence" eval="2"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="ms_request_management_to_render_view_form"/>
-            <field name="act_window_id" ref="action_ms_requests_management_to_render"/>
+            <field name="view_id" ref="to_surrender_management_to_render_view_form"/>
+            <field name="act_window_id" ref="action_to_surrender_management_to_render"/>
         </record>
 
         <record model="ir.actions.act_window.view" id="action_ms_requests_to_render_list">
             <field name="sequence" eval="1"/>
             <field name="view_mode">list</field>
-            <field name="view_id" ref="ms_request_management_to_render_view_list"/>
-            <field name="act_window_id" ref="action_ms_requests_management_to_render"/>
+            <field name="view_id" ref="to_surrender_management_to_render_view_list"/>
+            <field name="act_window_id" ref="action_to_surrender_management_to_render"/>
         </record>
 
 
