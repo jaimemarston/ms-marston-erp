@@ -158,8 +158,21 @@ msgid "amount"
 msgstr "Importe"
 
 #. module: ms_render_account_management
-#: model:ir.model.fields,field_description:ms_render_account_management.field_ms_request_management__applicant
-msgid "applicant"
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_contract_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_contract_view_list
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_oc_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_oc_view_list
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_os_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_os_view_list
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_payment_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_payment_view_list
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_surrenders_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_surrenders_view_list
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_to_render_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_management_to_render_view_list
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_treasury_view_form
+#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_treasury_view_list
+msgid "Applicant"
 msgstr "Solicitante"
 
 #. module: ms_render_account_management

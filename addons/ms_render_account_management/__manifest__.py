@@ -4,7 +4,9 @@
     'category': '',
     "depends": ['base','l10n_latam_invoice_document', 'account'],
     'data': [
-        "security/ir.model.access.csv",
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'views/menus_views.xml',
         'views/requests_management_views.xml',
         'views/request_settings_views.xml',
         'views/requests_contracts_views.xml',
@@ -14,9 +16,7 @@
         'views/requests_surrenders_views.xml',
         'views/account_move_views.xml',
         'views/treasury_views.xml',
-        'views/menus_views.xml',
-
-        'data/product_data.xml',
+         'data/product_data.xml',
     ],
     'license': 'OPL-1',
 }

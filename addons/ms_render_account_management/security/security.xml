@@ -1,0 +1,14 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Grupo sin acceso a Tesorería -->
+        <record id="group_no_treasury" model="res.groups">
+            <field name="name">No Access to Tesorería</field>
+            <!-- Cambiar la categoría a Herramientas para visibilidad general -->
+            <field name="category_id" ref="base.module_category_tools"/>
+            <!-- No vinculamos el grupo base para evitar conflictos -->
+            <field name="comment">Grupo para restringir acceso al menú Tesorería</field>
+            <!-- Asignar explícitamente el usuario admin -->
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>
