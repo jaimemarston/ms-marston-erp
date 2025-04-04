@@ -20,6 +20,7 @@
         'views/project_plan_views.xml',
         'views/business_plan_views.xml',
         'views/activity_plan_views.xml',
+        'views/area_plan_settings_views.xml',
         'views/menu.xml',
     ],
     'images': ['static/description/icon.png'],

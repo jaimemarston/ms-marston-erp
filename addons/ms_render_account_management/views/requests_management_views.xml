@@ -35,9 +35,9 @@
                             <field name="partner_id" string="Applicant"/>
                             <field name="request_type" invisible="0"/>
                             <field name="area_id"/>
-                            <field name="project" />
+                            <field name="project_id" />
                             <field name="activity_code" />
-                            <field name="reference" />
+                            <!-- <field name="reference" /> -->
                             <field name="res_bank_id" />
                             <field name="account_number" />
                             <field name="account_number_detraction"  />
@@ -101,13 +101,8 @@
                             <h1><field name="amount" /></h1>
                         </div>
                     </div>
-                    <chatter/>
                 </sheet>
-                <!-- <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div> -->
-
+                <chatter/>
             </form>
         </field>
     </record>

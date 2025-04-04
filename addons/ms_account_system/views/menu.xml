@@ -11,6 +11,7 @@
     <menuitem id="menu_project_plan" name="Plan de Proyectos" action="action_project_plan" sequence="20" parent="menu_master_files"/>
     <menuitem id="menu_business_plan" name="Plan de Rubros" action="action_business_plan" sequence="30" parent="menu_master_files"/>
     <menuitem id="menu_activity_plan" name="Plan de Actividades" action="action_activity_plan" sequence="40" parent="menu_master_files"/>
+    <menuitem id="menu_activity_areas" name="Plan de Areas" action="action_ms_account_system_settings" sequence="41" parent="menu_master_files"/>
     <menuitem id="menu_action_currency_form" name="Tipos de Cambio" action="base.action_currency_form" sequence="50" parent="menu_master_files"/>
     <menuitem id="account_analytic_def_account" name="Centro de Costos" action="analytic.action_account_analytic_account_form" sequence="60" parent="menu_master_files"/>
     <menuitem id="res_partner_menu_contacts" name="Proveedores / Clientes" action="contacts.action_contacts" sequence="70" parent="menu_master_files"/>

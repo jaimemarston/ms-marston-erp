@@ -18,7 +18,7 @@ class MsTreasury(models.Model):
     os_id = fields.Many2one('ms.request.management', string='os')
     partner_id = fields.Many2one('res.partner', string='partner')
     res_bank_id = fields.Many2one('res.bank', string='Bank')
-    area_id = fields.Many2one('ms.request.settings', string='Area', domain="[('type', '=', 'areas')]")
+    area_id = fields.Many2one('ms.account.system.settings', string='Area', domain="[('type', '=', 'areas')]")
     request_payment_id = fields.Many2one('ms.request.management', string='Solicitud de pago')
     res_currency_id = fields.Many2one('res.currency', string='Currency')
     status = fields.Selection([

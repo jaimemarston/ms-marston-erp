@@ -108,12 +108,6 @@ msgstr "Solicitud de pago"
 msgid "Requests"
 msgstr "Solicitudes"
 
-#. module: ms_render_account_management
-#: model:ir.actions.act_window,name:ms_render_account_management.action_ms_request_settings
-#: model:ir.ui.menu,name:ms_render_account_management.request_settings_menu
-#: model_terms:ir.ui.view,arch_db:ms_render_account_management.ms_request_settings_view_list
-msgid "Settings"
-msgstr "Configuraciones"
 
 #. module: ms_render_account_management
 #: model:ir.actions.act_window,name:ms_render_account_management.action_ms_requests_management_surrenders
