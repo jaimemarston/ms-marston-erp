@@ -5,4 +5,4 @@ access_business_plan_user,Business Plan User,model_ms_account_system_business_pl
 access_business_plan_manager,Business Plan Manager,model_ms_account_system_business_plan,base.group_system,1,1,1,1
 access_activity_plan_user,Activity Plan User,model_ms_account_system_activity_plan,base.group_user,1,0,0,0
 access_activity_plan_manager,Activity Plan Manager,model_ms_account_system_activity_plan,base.group_system,1,1,1,1
-access_ms_account_system_settings,ms.account.system.settings,model_ms_account_system_settings,base.group_system,1,1,1,1
+access_ms_account_system_settings_user,ms.account.system.settings.user,model_ms_account_system_settings,base.group_user,1,1,1,1

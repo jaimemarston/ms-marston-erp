@@ -97,8 +97,9 @@ class MsRequestManagement(models.Model):
                 if record.os_id and record.os_id.partner_id.id:
                     logging.info(record.os_id.partner_id)
                     logging.info('\n' * 5)
-
                     record.partner_id = record.os_id.partner_id
+
+
     @api.depends('area_id', 'activity_code')
     def _compute_name(self):
         for record in self:
@@ -157,5 +158,7 @@ class MsRequestManagement(models.Model):
     def _onchange_os_id(self):
         if self.os_id:
             self.project_id = self.os_id.project_id
+            self.area_id = self.os_id.area_id
+            self.activity_code = self.activity_code
         else:
             self.project_id = False

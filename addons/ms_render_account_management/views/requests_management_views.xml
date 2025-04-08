@@ -31,8 +31,8 @@
                     </div>
                     <group>
                         <group string="Datos de Aplicante">
-                            <field name="os_id" domain="[('request_type', '=', 'os')]"/>
                             <field name="partner_id" string="Applicant"/>
+                            <field name="os_id" domain="[('partner_id', '=', partner_id), ('request_type', 'in', ['contract', 'os', 'oc'])]"/>
                             <field name="request_type" invisible="0"/>
                             <field name="area_id"/>
                             <field name="project_id" />
@@ -44,7 +44,7 @@
                         </group>
                         <group string="Datos de Solicitud">
                             <field name="res_currency_id" />
-                            <field name="voucher_number"/>
+                            <!-- <field name="voucher_number"/> -->
                             <field name="rate" string="T/Cambio" />
                             <field name="date" />
                             <field name="format_eight" />
