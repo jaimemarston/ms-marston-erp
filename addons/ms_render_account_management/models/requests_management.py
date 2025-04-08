@@ -159,6 +159,6 @@ class MsRequestManagement(models.Model):
         if self.os_id:
             self.project_id = self.os_id.project_id
             self.area_id = self.os_id.area_id
-            self.activity_code = self.activity_code
+            self.activity_code = self.os_id.activity_code
         else:
             self.project_id = False
