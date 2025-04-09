@@ -129,13 +129,15 @@ class MsRequestManagement(models.Model):
             request.amount = sum(line.amount for line in request.requests_lines_ids if line.amount)
 
     def action_valited_request(self):
-        status = next(filter(lambda state: state[0] == self.status, self.STATES), None)
+       for record in self:
+        status = next((state for state in record.STATES if state[0] == record.status), None)
         if not status:
-            self.status = 'draft'
-            return
-        index = 1 if self.STATES.index(status) == len(self.STATES) - 1 else self.STATES.index(status) + 1
-        self.status = self.STATES[index][0]
-    
+            record.status = 'draft'
+            continue
+            
+        current_index = record.STATES.index(status)
+        next_index = current_index + 1 if current_index < len(record.STATES) - 1 else current_index
+        record.status = record.STATES[next_index][0]
 
     def decline_request(self):
         self.status = 'draft'
