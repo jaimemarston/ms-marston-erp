@@ -1,7 +1,7 @@
 __pycache__/ 
 *.pyc 
 .env 
-
+/addons/tenders/
 .vscode
 docker-compose.yml
 config/odoo.conf
