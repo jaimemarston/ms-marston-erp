@@ -90,6 +90,10 @@ class MsRequestManagement(models.Model):
 
     account_move_ids = fields.One2many('account.move', 'render_account_id', string='account move')
     
+     # Relaciones a los formatos 8 y 9
+    activity_report_ids = fields.One2many('ms.activity.report','request_id',string='Informes de Actividad')
+    conformity_report_ids = fields.One2many('ms.conformity.report','request_id',string='Actas de Conformidad')
+    
     @api.depends('os_id')
     def _compute_partner(self):
         for record in self:

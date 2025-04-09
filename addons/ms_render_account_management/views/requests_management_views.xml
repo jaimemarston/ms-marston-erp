@@ -91,6 +91,76 @@
                                 </form>
                             </field>
                         </page>
+                        <page string="Informe de Actividad (Formato 8)">
+                            <field name="activity_report_ids">
+                                <list>
+                                    <field name="report_number"/>
+                                    <field name="date"/>
+                                    <field name="author"/>
+                                </list>
+                                <form string="Informe de Actividad">
+                                    <sheet>
+                                        <group>
+                                            <field name="date"/>
+                                            <field name="report_number"/>
+                                            <field name="author"/>
+                                            <field name="activity_name"/>
+                                            <field name="topic"/>
+                                            <field name="school_name"/>
+                                            <field name="location"/>
+                                        </group>
+                                        <group string="Número de Beneficiarios">
+                                            <field name="beneficiary_type"/>
+                                            <field name="women"/>
+                                            <field name="men"/>
+                                            <field name="boys"/>
+                                            <field name="girls"/>
+                                            <field name="total"/>
+                                        </group>
+                                        <group string="Contenido del Informe">
+                                            <field name="advances"/>
+                                            <field name="difficulties"/>
+                                            <field name="suggestions"/>
+                                            <field name="comments"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Actas de Conformidad (Formato 9)">
+                            <field name="conformity_report_ids">
+                                <list>
+                                    <field name="supplier_name"/>
+                                    <field name="supplier_document_number"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                </list>
+                                <form string="Acta de Conformidad">
+                                    <sheet>
+                                        <group string="Datos del Proveedor">
+                                            <field name="supplier_name"/>
+                                            <field name="supplier_document_number"/>
+                                            <field name="contact_info"/>
+                                        </group>
+                                        <group string="Descripción del Bien/Servicio">
+                                            <field name="deliverable_description"/>
+                                            <field name="quantity"/>
+                                            <field name="start_date"/>
+                                            <field name="end_date"/>
+                                            <field name="observations"/>
+                                        </group>
+                                        <group string="Conformidad de Entregable">
+                                            <field name="response"/>
+                                            <field name="rating"/>
+                                            <field name="service_ok"/>
+                                            <field name="deadline_ok"/>
+                                            <field name="content_ok"/>
+                                            <field name="other_ok"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
                         <page string="Accounting entries" invisible="request_type in ['contract', 'os', 'oc'] or status not in ['stage_3', 'stage_2']">
                             <field name="account_move_ids" />
                         </page>

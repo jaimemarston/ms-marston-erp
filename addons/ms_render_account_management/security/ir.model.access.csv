@@ -4,3 +4,5 @@ access_ms_requests_lines_users,ms.requests.lines.users,model_ms_requests_lines,b
 access_ms_payment_requests_users,ms.payment.requests.users,model_ms_payment_requests,base.group_user,1,1,1,1
 access_ms_treasury_users,ms.treasury.users,model_ms_treasury,base.group_user,1,1,1,1
 access_to_surrender_management,to.surrender.management,model_to_surrender_management,base.group_user,1,1,1,1
+access_ms_activity_report,ms.activity.report,model_ms_activity_report,base.group_user,1,1,1,1
+access_ms_conformity_report,ms.conformity.report,model_ms_conformity_report,base.group_user,1,1,1,1
