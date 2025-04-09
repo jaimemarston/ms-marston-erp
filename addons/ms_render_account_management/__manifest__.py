@@ -6,6 +6,8 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'data/product_data.xml',
+        'data/ms_request_management_actions.xml',
         'views/requests_management_views.xml',
         'views/requests_contracts_views.xml',
         'views/requests_os_views.xml',
@@ -15,7 +17,6 @@
         'views/account_move_views.xml',
         'views/treasury_views.xml',
         'views/menus_views.xml',
-         'data/product_data.xml',
     ],
 
     'assets': {

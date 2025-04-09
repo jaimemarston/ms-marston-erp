@@ -43,7 +43,12 @@ class MsRequestManagement(models.Model):
     account_number = fields.Char('account number')
     account_number_detraction = fields.Char('account number detraction')
     status = fields.Selection(STATES, string='state', default="draft")
-
+    # Campo computado para visualización HTML
+    status_html = fields.Html(
+        string='Estado Visual',
+        compute='_compute_status_html',
+        store=True
+    )
     general_objectives = fields.Text('general objectives')
     specific_objectives = fields.Text('specific objectives')
     address_service = fields.Text('address and service')
@@ -166,3 +171,28 @@ class MsRequestManagement(models.Model):
             self.activity_code = self.os_id.activity_code
         else:
             self.project_id = False
+
+    
+    
+
+    @api.depends('status')
+    def _compute_status_html(self):
+        state_classes = {
+            'draft': 'text-bg-warning',
+            'stage_1': 'text-bg-info',
+            'stage_2': 'text-bg-primary',
+            'stage_3': 'text-bg-secondary',
+            'stage_4': 'text-bg-dark',
+            'stage_5': 'text-bg-success'
+        }
+        
+        for record in self:
+            if record.status:
+                display_value = dict(self.STATES).get(record.status)
+                record.status_html = f'''
+                    <span class="badge rounded-pill {state_classes.get(record.status, 'text-bg-light')}">
+                        {display_value}
+                    </span>
+                '''
+            else:
+                record.status_html = ''
