@@ -9,16 +9,20 @@ class MsRequestsLines(models.Model):
     document_type_id = fields.Many2one('l10n_latam.document.type', string='document type')
     series = fields.Char('series')
     receipt_number = fields.Char('receipt number')
-    date = fields.Date('date')
+    date = fields.Date('date',default=fields.Date.context_today)
     details = fields.Text('details')
-    amount = fields.Float('amount')
+    amount = fields.Float('amount', compute='_compute_amount')
     request_id = fields.Many2one('ms.request.management', string='request')
     rate = fields.Float('Rate', digits=(16, 3))
     transaction_date = fields.Date('Transaction date')
     transaction_number = fields.Char('Transaction number')
-    res_currency_id = fields.Many2one('res.currency', string='Currency')
+    res_currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env['res.currency'].search([('name', '=', 'PEN')], limit=1).id)
     due_date = fields.Date('Due date')
     retention = fields.Boolean('Retention')
+    has_additional_cost = fields.Boolean('¿Costo adicional por entrega?')
+    additional_delivery_cost = fields.Float('Monto de costo adicional', digits=(16, 2))
+    unit_price = fields.Float('Precio Unitario') 
+    cant_product = fields.Integer(string="Cantidad")  # Cambiado a Integer para números enteros
 
     journal_id = fields.Many2one('account.journal', string='journal')
 
@@ -75,3 +79,17 @@ class MsRequestsLines(models.Model):
         })
         # invoice.action_post()
         return invoice
+
+
+    @api.depends('unit_price', 'unit_price')
+    def _compute_amount(self):
+        for line in self:
+            line.amount = (line.unit_price or 0) * (line.unit_price or 0.0)
+
+
+    @api.depends('unit_price', 'unit_price', 'has_additional_cost', 'additional_delivery_cost')
+    def _compute_amount(self):
+        for line in self:
+            base = (line.unit_price or 0.0) * (line.unit_price or 0.0)
+            extra = line.additional_delivery_cost if line.has_additional_cost else 0.0
+            line.amount = base + extra

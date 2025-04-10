@@ -31,65 +31,53 @@
                             <h1><field name="name" /></h1>
                         </div>
                         <group>
-                            <group string="Data applicant">
-                                <field name="partner_id" string="Applicant"/>
+                            <group>
+                            <group string="Data Request">
                                 <field name="description_property" invisible="1"/>
                                 <field name="request_type" invisible="1"/>
-                                <field name="area_id"/>
-                                <field name="project_id" />
-                                <field name="activity_code" />
+                                <field name="date" string="Fecha"/>
+                                <field name="partner_id" string="Orden realizada por"/>
+                                <field name="area_id" string="Area De"/>
                             </group>
-                            <group string="Data Request">
-                                <field name="date" />
-                                <field name="service_id" string="Compra" invisible="request_type not in ['contract', 'os', 'oc']"/>
+                            <group>
+                                <field name="service_id" string="Para el Area" invisible="request_type not in ['contract', 'os', 'oc']"/>
+                                <field name="project_id" string="Proyecto"/>
+                                <field name="activity_code" string="Còdigo de la Actividad"/>
                             </group>
                         </group>
+                        </group>
                         <notebook>
-                            <page string="Documentos" invisible="request_type not in ['contract', 'os', 'oc']">
-                                <group>
-                                    <group>
-                                        <field name="dni" string="DNI"/>
-                                        <field name="rh" string="DJ (RH)" invisible="request_type not in ['os', 'oc']"/>
-                                        <field name="ruc_tab" string="Ficha RUC"/>
-                                    </group>
-                                    <group>
-                                        <field name="suspension" string="Suspensión" invisible="request_type not in ['os', 'oc']"/>
-                                        <field name="cv" string="CV"/>
-                                        <field name="power_validity" string="Vigencia Poder"/>
-                                    </group>
-                                </group>
-                            </page>
-                            <page string="Terminos de referencia" invisible="request_type not in ['contract', 'os', 'oc']">
-                                <group >
-                                    <group>
-                                        <field name="general_objectives" string="Objetivo general" />
-                                        <field name="specific_objectives" string="Objetivo espesifico"/>
-                                        <field name="address_service" string="Lugar y forma del servicio" />
-                                        <field name="person_profile" string="Perfil de la persona natural o juridica"/>
-                                    </group>
-                                    <group string="Periodo del servicio">
-                                        <field name="date_of" string="Del: "/>
-                                        <field name="date_to" string="Al: "/>
-                                    </group>
-                                    <group>
-                                        <field name="service_activities" string="Actividades del servicio a realizar"/>
-                                        <field name="accordance" string="Conformidad del servicio y trámite de pago"/>
-                                    </group>
-                                </group>
-                            </page>
-                            <page string="Forma de Pagos del servicio" invisible="request_type not in ['contract', 'os', 'oc']">
-                                <field name="payments_request_ids" >
-                                    <list string="Pagos">
-                                        <field name="date" string="Fecha"/>
-                                        <field name="details" string="Concepto de pago"/>
-                                        <field name="amount" string="Monto"/>
+                            <page string="Requests Lines">
+                                <field name="requests_lines_ids" context="{'type': request_type}">
+                                    <list>
+                                        <!-- <field name="date" /> -->
+                                        <field name="partner_id" string="Proveedor"/>
+                                        <field name="details" string="Descripcion" />
+                                        <field name="cant_product" string="Cantidad" />
+                                        <field name="has_additional_cost" string="¿Costo adicional?"/>
+                                        <field name="additional_delivery_cost" string="Costo entrega" 
+                                            attrs="{'invisible': [('has_additional_cost', '=', False)]}"/>
+                                        <field name="amount"/>                                        
                                     </list>
                                     <form>
-                                        <group>
-                                            <field name="date" string="Fecha"/>
-                                            <field name="details" string="Concepto de pago"/>
-                                            <field name="amount" string="Monto" />
-                                        </group>
+                                        <sheet>
+                                            <group>
+                                                <!-- <field name="date"/> -->
+                                                <field name="partner_id" string="Proveedor"/>
+                                                <field name="details" string="Descripción"/>
+                                                <field name="cant_product" string="Cantidad"/>
+                                                <field name="unit_price" string="Precio Unitario"/>
+                                                <field name="has_additional_cost" string="¿Costo adicional por entrega?"/>
+                                                <field name="additional_delivery_cost" string="Costo adicional" attrs="{'invisible': [('has_additional_cost', '=', False)]}"/>
+                                                <!-- <field name="amount"/> -->
+                                                <!-- <field name="rate" string="T/Cambio"/> -->
+                                                <field name="res_currency_id"/>
+                                                <field name="document_type_id" invisible="context.get('type') not in ['payment', 'surrenders']"
+                                                    required="context.get('type') not in ['payment', 'surrenders']"/>
+                                                <field name="receipt_number" invisible="context.get('type') not in ['payment', 'surrenders']"
+                                                    required="context.get('type') not in ['payment', 'surrenders']"/>
+                                            </group>
+                                        </sheet>
                                     </form>
                                 </field>
                             </page>
