@@ -31,6 +31,7 @@ class MsRequestManagement(models.Model):
     # --------------------
     # fields
     # --------------------    
+    justification= fields.Text(string="Justificacion de Eleccion de Proveedor")
     name = fields.Char('name', compute="_compute_name")
     request_type = fields.Selection(TYPES_REQUEST, string='Request Type')
     project_id = fields.Many2one('account.analytic.account', string='project')

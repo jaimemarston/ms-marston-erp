@@ -11,7 +11,7 @@ class MsRequestsLines(models.Model):
     receipt_number = fields.Char('receipt number')
     date = fields.Date('date',default=fields.Date.context_today)
     details = fields.Text('details')
-    amount = fields.Float('amount', compute='_compute_amount')
+    amount = fields.Float('amount')     
     request_id = fields.Many2one('ms.request.management', string='request')
     rate = fields.Float('Rate', digits=(16, 3))
     transaction_date = fields.Date('Transaction date')
@@ -81,15 +81,15 @@ class MsRequestsLines(models.Model):
         return invoice
 
 
-    @api.depends('unit_price', 'unit_price')
-    def _compute_amount(self):
-        for line in self:
-            line.amount = (line.unit_price or 0) * (line.unit_price or 0.0)
 
-
-    @api.depends('unit_price', 'unit_price', 'has_additional_cost', 'additional_delivery_cost')
-    def _compute_amount(self):
+    @api.onchange('unit_price', 'cant_product', 'has_additional_cost', 'additional_delivery_cost')
+    def _onchange_amount(self):
         for line in self:
-            base = (line.unit_price or 0.0) * (line.unit_price or 0.0)
+            base = (line.unit_price or 0.0) * (line.cant_product or 0.0)
             extra = line.additional_delivery_cost if line.has_additional_cost else 0.0
             line.amount = base + extra
+
+    @api.onchange('has_additional_cost')
+    def _onchange_has_additional_cost(self):
+        if not self.has_additional_cost:
+            self.additional_delivery_cost = 0.0

@@ -53,13 +53,13 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Requests Lines" invisible="request_type in ['contract', 'os', 'oc']">
+                        <page string="Lines de Solicitud" invisible="request_type in ['contract', 'os', 'oc']">
                             <field name="requests_lines_ids" context="{'type': request_type}">
                                 <list>
                                     <field name="partner_id" string="RUC"/>
                                     <field name="document_type_id" />
                                     <field name="series" />
-                                    <field name="receipt_number" />
+                                    <field name="receipt_number" string="Número de documento"/>
                                     <field name="date" />
                                     <field name="amount"/>
                                     <field name="details" />
@@ -71,16 +71,16 @@
                                                 <field name="partner_id" string="RUC" />
                                                 <field name="document_type_id" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
                                                 <field name="series" invisible="context.get('type') not in ['payment', 'surrenders']"/>
-                                                <field name="receipt_number" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
-                                                <field name="journal_id" />
+                                                <field name="receipt_number" string="Número de documento" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
+                                                <field name="journal_id" string="Diario"/>
                                             </group>
                                             <group >
                                                 <field name="date" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
                                                 <field name="amount"/>
                                                 <field name="rate" string="T/Cambio"/>
                                                 <field name="res_currency_id" />
-                                                <field name="transaction_number" required="1"/>
-                                                <field name="transaction_date" />
+                                                <field name="transaction_number" string="Orden detracción"/>
+                                                <field name="transaction_date" string="Fecha detracción"/>
                                                 <field name="due_date" />
                                                 <field name="retention" />
                                             </group>
@@ -162,7 +162,7 @@
                                 </form>
                             </field>
                         </page>
-                        <page string="Accounting entries" invisible="request_type in ['contract', 'os', 'oc'] or status not in ['stage_3', 'stage_2']">
+                        <page string="Asientos contables" invisible="request_type in ['contract', 'os', 'oc'] or status not in ['stage_3', 'stage_2']">
                             <field name="account_move_ids" />
                         </page>
                     </notebook>

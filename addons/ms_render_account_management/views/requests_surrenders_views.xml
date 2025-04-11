@@ -59,15 +59,15 @@
                                                     <field name="document_type_id" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
                                                     <field name="series" invisible="context.get('type') not in ['payment', 'surrenders']"/>
                                                     <field name="receipt_number" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
-                                                    <field name="journal_id" />
+                                                    <field name="journal_id" string="Diario"/>
                                                 </group>
                                                 <group >
                                                     <field name="date" invisible="context.get('type') not in ['payment', 'surrenders']" required="context.get('type') not in ['payment', 'surrenders']"/>
                                                     <field name="amount"/>
                                                     <field name="rate" string="T/Cambio"/>
                                                     <field name="res_currency_id" />
-                                                    <field name="transaction_number" required="1"/>
-                                                    <field name="transaction_date" />
+                                                    <field name="transaction_number" string="Orden detracción"/>
+                                                    <field name="transaction_date" string="Fecha detracción"/>
                                                     <field name="due_date" />
                                                     <field name="retention" />
                                                 </group>

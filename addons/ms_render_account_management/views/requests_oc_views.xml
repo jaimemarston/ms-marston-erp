@@ -39,7 +39,7 @@
                                 <field name="partner_id" string="Orden realizada por"/>
                                 <field name="area_id" string="Area De"/>
                             </group>
-                            <group>
+                            <group string="">
                                 <field name="service_id" string="Para el Area" invisible="request_type not in ['contract', 'os', 'oc']"/>
                                 <field name="project_id" string="Proyecto"/>
                                 <field name="activity_code" string="Còdigo de la Actividad"/>
@@ -56,7 +56,7 @@
                                         <field name="cant_product" string="Cantidad" />
                                         <field name="has_additional_cost" string="¿Costo adicional?"/>
                                         <field name="additional_delivery_cost" string="Costo entrega" 
-                                            attrs="{'invisible': [('has_additional_cost', '=', False)]}"/>
+                                            invisible="has_additional_cost == False"/>
                                         <field name="amount"/>                                        
                                     </list>
                                     <form>
@@ -68,7 +68,7 @@
                                                 <field name="cant_product" string="Cantidad"/>
                                                 <field name="unit_price" string="Precio Unitario"/>
                                                 <field name="has_additional_cost" string="¿Costo adicional por entrega?"/>
-                                                <field name="additional_delivery_cost" string="Costo adicional" attrs="{'invisible': [('has_additional_cost', '=', False)]}"/>
+                                                <field name="additional_delivery_cost" string="Costo adicional" invisible="has_additional_cost == False"/>
                                                 <!-- <field name="amount"/> -->
                                                 <!-- <field name="rate" string="T/Cambio"/> -->
                                                 <field name="res_currency_id"/>
@@ -82,11 +82,18 @@
                                 </field>
                             </page>
                         </notebook>
-                        <div style="display: flex; justify-content: flex-end;">
+                        <!-- <div style="display: flex; justify-content: flex-end;">
                             <div style="margin-left: auto;">
                                 <h1><label for="amount" string="Amount:"/></h1>
                                 <h1><field name="amount" /></h1>
                             </div>
+                        </div> -->
+                         <div style="width: 100%; margin-top: 30px;">
+                            <h3><label for="justification" string="Justificación de Elección de Proveedor"/></h3>
+                            <field name="justification" 
+                                widget="textarea" 
+                                placeholder="Describa los criterios técnicos/económicos para seleccionar este proveedor..."
+                                style="width: 100%; min-height: 120px; padding: 8px;"/>
                         </div>
                     </sheet>
                 </form>

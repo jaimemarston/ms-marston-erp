@@ -377,9 +377,9 @@ msgstr "Rentención"
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__transaction_number
 msgid "Transaction number"
-msgstr "Número de transacción"
+msgstr "Número de Traciòn"
 
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__transaction_date
 msgid "Transaction date"
-msgstr "Fecha de transacción"
+msgstr "Fecha de Traciòn"
