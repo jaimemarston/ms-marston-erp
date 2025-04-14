@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name" string="Correlativo" />
-                <field name="partner_id" string="Applicant" />
+                <field name="partner_id" string="Solicitante" />
                 <field name="request_type" />
                 <field name="amount" />
                 <field name="status_html" widget="html" string="Estatus"/>
@@ -32,11 +32,11 @@
                     </div>
                     <group>
                         <group string="Datos de Aplicante">
-                            <field name="partner_id" string="Applicant"/>
-                            <field name="os_id" domain="[('partner_id', '=', partner_id), ('request_type', 'in', ['contract', 'os', 'oc'])]"/>
+                            <field name="partner_id" string="Solicitante"/>
+                            <field name="os_id" string="Documento" domain="[('partner_id', '=', partner_id), ('request_type', 'in', ['contract', 'os', 'oc'])]"/>
                             <field name="request_type" invisible="0"/>
                             <field name="area_id"/>
-                            <field name="project_id" />
+                            <field name="project_id" string="Proyecto" />
                             <field name="activity_code" />
                             <!-- <field name="reference" /> -->
                             <field name="res_bank_id" />
@@ -44,7 +44,7 @@
                             <field name="account_number_detraction"  />
                         </group>
                         <group string="Datos de Solicitud">
-                            <field name="res_currency_id" />
+                            <field name="res_currency_id" string="Moneda" />
                             <!-- <field name="voucher_number"/> -->
                             <field name="rate" string="T/Cambio" />
                             <field name="date" />
@@ -53,7 +53,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Lines de Solicitud" invisible="request_type in ['contract', 'os', 'oc']">
+                        <page string="Documentos de Solicitud" invisible="request_type in ['contract', 'os', 'oc']">
                             <field name="requests_lines_ids" context="{'type': request_type}">
                                 <list>
                                     <field name="partner_id" string="RUC"/>

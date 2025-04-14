@@ -372,7 +372,7 @@ msgstr "Fecha de Vencimiento"
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__retention
 msgid "Retention"
-msgstr "Rentención"
+msgstr "Retención"
 
 #. module: ms_render_account_management
 #: model:ir.model.fields,field_description:ms_render_account_management.field_ms_requests_lines__transaction_number

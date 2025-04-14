@@ -23,7 +23,7 @@ class MsRequestManagement(models.Model):
         ('stage_2', 'V°B° Direccion'),
         ('stage_3', 'V°B° Contable'),
         ('stage_4', 'V°B° Logistica'),
-        ('stage_5', 'V°B Tesoreria'),
+        ('stage_5', 'Contabilidad'),
         ('cancelled', 'Anulado'),
         
         

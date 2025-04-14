@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="name" string="Correlativo" />
-                    <field name="partner_id" string="Applicant" />
+                    <field name="partner_id" string="Solicitante" />
                     <field name="request_type" />
                     <field name="amount" />
                 </list>
@@ -32,19 +32,19 @@
                             <h1><field name="name" /></h1>
                         </div>
                         <group>
-                            <group string="Data applicant">
-                                <field name="partner_id" string="Applicant"/>
+                            <group string="Solicitud">
+                                <field name="partner_id" string="Solicitante"/>
                                 <field name="request_type" invisible="1"/>
                                 <field name="area_id"/>
-                                <field name="project_id" />
+                                <field name="project_id" string="Proyecto" />
                                 <field name="activity_code" />
                                 <!-- <field name="reference"/> -->
                                 <field name="res_bank_id" />
                                 <field name="account_number" />
                                 <field name="account_number_detraction" />
                             </group>
-                            <group string="Data Request">
-                                <field name="res_currency_id" />
+                            <group string="Adicionales">
+                                <field name="res_currency_id" string="Moneda" />
                                 <field name="date" />
                                 <field name="service_id" string="Servicio" />
                                 <field name="amount" />

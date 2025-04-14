@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="request_payment_id"/>
-                <field name="partner_id" string="Applicant" />
+                <field name="partner_id" string="Solicitante" />
                 <field name="amount" />
                 <!-- Etiqueta de estado en la vista de lista -->
                 <field name="status_html" widget="html" string="status"/>
@@ -23,8 +23,8 @@
                     <group>
                         <group string="Datos de Aplicante">
                             <field name="request_payment_id" />
-                            <field name="os_id" domain="[('request_type', '=', 'os')]"/>
-                            <field name="partner_id" string="Applicant"/>
+                            <field name="os_id" string="Documento" domain="[('request_type', '=', 'os')]"/>
+                            <field name="partner_id" string="Solicitante"/>
                             <field name="area_id"/>
                             <field name="project" />
                             <field name="activity_code" />
@@ -34,7 +34,7 @@
                             <field name="account_number_detraction"  />
                         </group>
                         <group string="Datos de Solicitud">
-                            <field name="res_currency_id" />
+                            <field name="res_currency_id" string="Moneda"/>
                             <field name="voucher_number"/>
                             <field name="rate" string="T/Cambio" />
                             <field name="date" />

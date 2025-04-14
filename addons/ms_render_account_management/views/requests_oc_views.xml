@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="name" string="Correlativo" />
-                    <field name="partner_id" string="Applicant" />
+                    <field name="partner_id" string="Solicitante" />
                     <field name="request_type" />
                     <field name="amount" />
                 </list>
@@ -90,7 +90,7 @@
                                                 <field name="additional_delivery_cost" string="Costo adicional" invisible="has_additional_cost == False"/>
                                                 <!-- <field name="amount"/> -->
                                                 <!-- <field name="rate" string="T/Cambio"/> -->
-                                                <field name="res_currency_id"/>
+                                                <field name="res_currency_id" string="Proyecto"/>
                                                 <field name="document_type_id" invisible="context.get('type') not in ['payment', 'surrenders']"
                                                     required="context.get('type') not in ['payment', 'surrenders']"/>
                                                 <field name="receipt_number" invisible="context.get('type') not in ['payment', 'surrenders']"

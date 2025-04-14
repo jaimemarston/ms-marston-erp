@@ -32,15 +32,15 @@
                                 <h1><field name="name" /></h1>
                             </div>
                             <group>
-                                <group string="Data applicant">
+                                <group string="Solicitud">
                                     <field name="partner_id" string="Applicant"/>
                                     <field name="description_property" invisible="1"/>
                                     <field name="request_type" invisible="1"/>
                                     <field name="area_id"/>
-                                    <field name="project_id" />
+                                    <field name="project_id" string="Proyecto"/>
                                     <field name="activity_code" />
                                 </group>
-                                <group string="Data Request">
+                                <group string="Datos Adicionales">
                                     <field name="date" />
                                     <field name="description_property" string="Descripción" invisible="request_type not in ['contract', 'os', 'oc']"/>
                                 </group>
