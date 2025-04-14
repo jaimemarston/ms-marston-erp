@@ -23,6 +23,7 @@ class MsRequestsLines(models.Model):
     additional_delivery_cost = fields.Float('Monto de costo adicional', digits=(16, 2))
     unit_price = fields.Float('Precio Unitario') 
     cant_product = fields.Integer(string="Cantidad")  # Cambiado a Integer para números enteros
+    general_document = fields.Binary('general document')
 
     journal_id = fields.Many2one('account.journal', string='journal')
 

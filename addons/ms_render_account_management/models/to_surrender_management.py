@@ -27,6 +27,7 @@ class ToSurrenderManagement(models.Model):
         ('stage_3', 'V°B° Contable'),
         ('stage_4', 'V°B° Logistica'),
         ('stage_5', 'V°B Tesoreria'),
+        ('cancelled', 'Anulado'),
     ]
 
     name = fields.Char('name', compute="_compute_name")
@@ -81,12 +82,20 @@ class ToSurrenderManagement(models.Model):
 
 
     def action_valited_request(self):
-        status = next(filter(lambda state: state[0] == self.status, self.STATES), None)
-        if not status:
-            self.status = 'draft'
-            return
-        index = 1 if self.STATES.index(status) == len(self.STATES) - 1 else self.STATES.index(status) + 1
-        self.status = self.STATES[index][0]
-    
+        for record in self:
+            # Evitar avanzar si el estado es 'cancelled'
+            if record.status == 'cancelled':
+                continue
+            # Crear secuencia de estados que NO incluye 'cancelled'
+            valid_states = [s[0] for s in record.STATES if s[0] != 'cancelled']
+            # Obtener índice actual del estado
+            if record.status not in valid_states:
+                record.status = 'draft'
+                continue
+            current_index = valid_states.index(record.status)
+            # Solo avanzar si no estamos en el último estado
+            if current_index < len(valid_states) - 1:
+                record.status = valid_states[current_index + 1]
+
     def decline_request(self):
         self.status = 'draft'

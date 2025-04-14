@@ -14,5 +14,21 @@ if records:
     records.action_valited_request()
 ]]></field>
         </record>
+
+
+        <!-- Acción de servidor que ejecuta la anulación -->
+        <record id="ir_actions_server_cancel_request" model="ir.actions.server">
+            <field name="name">Anular Solicitud</field>
+            <field name="model_id" ref="model_ms_request_management"/>
+            <field name="binding_model_id" ref="model_ms_request_management"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code"><![CDATA[
+# Ejecuta action_cancel_request() en todos los registros seleccionados
+if records:
+    records.action_cancel_request()
+]]></field>
+        </record>
+
     </data>
 </odoo>

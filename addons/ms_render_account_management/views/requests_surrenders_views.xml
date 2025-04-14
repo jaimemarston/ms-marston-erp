@@ -7,7 +7,7 @@
             <field name="model">ms.request.management</field>
             <field name="arch" type="xml">
                 <list>
-                    <field name="name" string="Correlative" />
+                    <field name="name" string="Correlativo" />
                     <field name="partner_id" string="Applicant" />
                     <field name="request_type" />
                     <field name="amount" />
@@ -21,13 +21,13 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button string="Validar" name="action_valited_request" type="object" class="oe_highlight"/>
+                        <button string="Validar" name="action_valited_request" type="object" class="oe_highlight" invisible="status in ['cancelled']"/>
                         <button string="Rechazar" name="decline_request" type="object" class="oe_highlight" invisible="status not in ['stage_2', 'stage_3']"/>
-                        <field name="status" widget="statusbar"/>
+                        <field name="status" widget="statusbar" statusbar_visible="draft,stage_1,stage_2,stage_3,stage_4,stage_5"/>
                     </header>
                     <sheet>
                         <div class="oe_title">
-                            <label for="name" string="Correlative"/>
+                            <label for="name" string="Correlativo"/>
                             <h1><field name="name" /></h1>
                         </div>
                         <group>
@@ -40,7 +40,7 @@
                             </group>
                         </group>
                         <notebook>
-                            <page string="Requests Lines" invisible="request_type in ['contract', 'os', 'oc']">
+                            <page string="Lines de Solicitud" invisible="request_type in ['contract', 'os', 'oc']">
                                 <field name="requests_lines_ids" context="{'type': request_type}">
                                     <list>
                                         <field name="partner_id" string="RUC"/>
@@ -66,8 +66,8 @@
                                                     <field name="amount"/>
                                                     <field name="rate" string="T/Cambio"/>
                                                     <field name="res_currency_id" />
-                                                    <field name="transaction_number" string="Orden detracción"/>
-                                                    <field name="transaction_date" string="Fecha detracción"/>
+                                                    <!-- <field name="transaction_number" string="Orden detracción"/>
+                                                    <field name="transaction_date" string="Fecha detracción"/> -->
                                                     <field name="due_date" />
                                                     <field name="retention" />
                                                 </group>

@@ -24,7 +24,7 @@ class MsRequestManagement(models.Model):
         ('stage_3', 'V°B° Contable'),
         ('stage_4', 'V°B° Logistica'),
         ('stage_5', 'V°B Tesoreria'),
-        
+        ('cancelled', 'Anulado'),
         
         
     ]
@@ -67,10 +67,17 @@ class MsRequestManagement(models.Model):
     suspension = fields.Binary('Suspension')
     cv = fields.Binary('cv')
     power_validity = fields.Binary('Power validity')
+    proposal_one = fields.Binary('proposal one')
+    proposal_two = fields.Binary('proposal two')
+    quotation_file_1 = fields.Binary('Cotización 1')
+    quotation_file_2 = fields.Binary('Cotización 2')
+    quotation_file_3 = fields.Binary('Cotización 3')
 
     # --- DOCUEMENTS PAYEMENTS REQUESTS --
     format_eight = fields.Binary('Formato N°8')
     format_nine = fields.Binary('Formato N°9')
+    format_two = fields.Binary('Formato N°2')
+
     # --------------------
     # relational fields
     # --------------------
@@ -124,21 +131,30 @@ class MsRequestManagement(models.Model):
                     name = name + "-" + record.activity_code
             record.name = name
 
-    @api.depends('requests_lines_ids')
+    @api.depends('requests_lines_ids.amount', 'payments_request_ids.amount')
     def _compute_amount(self):
-        for request in self:
-            request.amount = sum(line.amount for line in request.requests_lines_ids if line.amount)
+        for record in self:
+            lines_total = sum(line.amount for line in record.requests_lines_ids)
+            payments_total = sum(record.payments_request_ids.mapped('amount'))
+            record.amount = lines_total + payments_total
+
 
     def action_valited_request(self):
-       for record in self:
-        status = next((state for state in record.STATES if state[0] == record.status), None)
-        if not status:
-            record.status = 'draft'
-            continue
-            
-        current_index = record.STATES.index(status)
-        next_index = current_index + 1 if current_index < len(record.STATES) - 1 else current_index
-        record.status = record.STATES[next_index][0]
+        for record in self:
+            # Evitar avanzar si el estado es 'cancelled'
+            if record.status == 'cancelled':
+                continue
+            # Crear secuencia de estados que NO incluye 'cancelled'
+            valid_states = [s[0] for s in record.STATES if s[0] != 'cancelled']
+            # Obtener índice actual del estado
+            if record.status not in valid_states:
+                record.status = 'draft'
+                continue
+            current_index = valid_states.index(record.status)
+            # Solo avanzar si no estamos en el último estado
+            if current_index < len(valid_states) - 1:
+                record.status = valid_states[current_index + 1]
+
 
     def decline_request(self):
         self.status = 'draft'
@@ -175,8 +191,6 @@ class MsRequestManagement(models.Model):
         else:
             self.project_id = False
 
-    
-    
 
     @api.depends('status')
     def _compute_status_html(self):
@@ -186,7 +200,8 @@ class MsRequestManagement(models.Model):
             'stage_2': 'text-bg-primary',
             'stage_3': 'text-bg-secondary',
             'stage_4': 'text-bg-dark',
-            'stage_5': 'text-bg-success'
+            'stage_5': 'text-bg-success',
+            'cancelled': 'text-bg-danger',
         }
         
         for record in self:
@@ -199,3 +214,7 @@ class MsRequestManagement(models.Model):
                 '''
             else:
                 record.status_html = ''
+    
+    def action_cancel_request(self):
+        for rec in self:
+            rec.status = 'cancelled'
