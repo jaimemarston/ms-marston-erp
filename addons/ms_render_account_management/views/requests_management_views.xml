@@ -48,8 +48,6 @@
                             <!-- <field name="voucher_number"/> -->
                             <field name="rate" string="T/Cambio" />
                             <field name="date" />
-                            <field name="format_eight" />
-                            <field name="format_nine" />
                         </group>
                     </group>
                     <notebook>
@@ -62,7 +60,7 @@
                                     <field name="receipt_number" string="Número de documento"/>
                                     <field name="date" />
                                     <field name="amount"/>
-                                    <field name="general_document" widget="binary" string="Adjuntar Factura"/>
+                                    <field name="general_document" widget="binary" string="Adjuntar Documento"/>
                                     <field name="details" />
                                 </list>
                                 <form>
@@ -84,7 +82,7 @@
                                                 <field name="transaction_date" string="Fecha detracción"/> -->
                                                 <field name="due_date" />
                                                 <field name="retention" />
-                                                <field name="general_document" string="Adjuntar Factura"/>
+                                                <field name="general_document" string="Adjuntar Documento"/>
                                             </group>
                                         </group>
                                         <group >
@@ -93,6 +91,11 @@
                                     </sheet>
                                 </form>
                             </field>
+                        </page>
+                        <page string="Formato N°7">
+                            <group>
+                                <field name="format_seven"/>
+                            </group>
                         </page>
                         <page string="Informe de Actividad (Formato 8)">
                             <field name="activity_report_ids">

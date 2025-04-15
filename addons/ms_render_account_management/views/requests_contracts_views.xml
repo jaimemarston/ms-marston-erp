@@ -47,17 +47,18 @@
                             </group>
                             <notebook>
                                 <page string="Documentos" invisible="request_type not in ['contract', 'os', 'oc']">
-                                    <group>
+                                    <group col="3" colspan="4">
                                         <group>
                                             <field name="dni" string="DNI"/>
                                             <field name="ruc_tab" string="Ficha RUC"/>
-                                            <field name="proposal_one" string="Propuesta Uno"/>
-
                                         </group>
                                         <group>
                                             <field name="cv" string="CV"/>
                                             <field name="power_validity" string="Vigencia Poder"/>
-                                            <field name="proposal_two" string="Propuesta Dos"/>
+                                        </group>
+                                        <group>
+                                            <field name="proposal_one" string="Propuesta N°1"/>
+                                            <field name="proposal_two" string="Propuesta N`2"/>
                                         </group>
                                     </group>
                                 </page>

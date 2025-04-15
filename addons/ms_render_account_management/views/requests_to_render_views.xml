@@ -37,17 +37,17 @@
                                 <field name="request_type" invisible="1"/>
                                 <field name="area_id"/>
                                 <field name="project_id" string="Proyecto" />
-                                <field name="activity_code" />
+                                <field name="activity_code"  string="Codigo de Actividad"/>
                                 <!-- <field name="reference"/> -->
-                                <field name="res_bank_id" />
-                                <field name="account_number" />
-                                <field name="account_number_detraction" />
+                                <field name="res_bank_id" string="Banco"/>
+                                <field name="account_number" string="Número de cuenta"/>
+                                <field name="account_number_detraction" string="Número detraccion" />
                             </group>
                             <group string="Adicionales">
                                 <field name="res_currency_id" string="Moneda" />
                                 <field name="date" />
                                 <field name="service_id" string="Servicio" />
-                                <field name="amount" />
+                                <field name="amount" string="Importe"/>
                             </group>
                         </group>
                     </sheet>

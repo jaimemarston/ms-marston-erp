@@ -11,6 +11,7 @@
                     <field name="partner_id" string="Solicitante" />
                     <field name="request_type" />
                     <field name="amount" />
+                    <field name="status_html" widget="html" string="Estatus"/>
                 </list>
             </field>
         </record>

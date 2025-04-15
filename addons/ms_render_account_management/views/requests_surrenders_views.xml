@@ -50,6 +50,7 @@
                                         <field name="receipt_number" />
                                         <field name="date" />
                                         <field name="amount"/>
+                                        <field name="general_document" string="Adjuntar Documento"/>
                                         <field name="details" />
                                     </list>
                                     <form>
@@ -71,6 +72,7 @@
                                                     <field name="transaction_date" string="Fecha detracción"/> -->
                                                     <field name="due_date" />
                                                     <field name="retention" />
+                                                    <field name="general_document" string="Adjuntar Documento"/>
                                                 </group>
                                             </group>
                                             <group >

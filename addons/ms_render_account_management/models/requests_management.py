@@ -78,6 +78,8 @@ class MsRequestManagement(models.Model):
     format_eight = fields.Binary('Formato N°8')
     format_nine = fields.Binary('Formato N°9')
     format_two = fields.Binary('Formato N°2')
+    format_seven = fields.Binary('Formato N°7')
+
 
     # --------------------
     # relational fields
