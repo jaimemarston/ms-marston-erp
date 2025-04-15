@@ -93,6 +93,8 @@ class MsRequestManagement(models.Model):
     payments_request_ids = fields.One2many('ms.payment.requests', 'request_id', string='payments')
     treasury_id = fields.Many2one('ms.treasury', string='Tesoreria')
 
+    to_render_id = fields.Many2one('to.surrender.management', string="Documento")
+
     # dni = fields.Char('dni')  
     correlative = fields.Char('correlative')
     cost_center = fields.Char('cost center')

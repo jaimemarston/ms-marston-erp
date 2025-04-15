@@ -7,13 +7,17 @@ class TravelRequest(models.Model):
 
     # Campos básicos
     name = fields.Char(string='Referencia', readonly=True, default='Nuevo')
-    state = fields.Selection([
-        ('draft', 'Borrador'),
-        ('to_approve', 'Por Aprobar'),
-        ('approved', 'Aprobado'),
-        ('rejected', 'Rechazado'),
-        ('done', 'Completado')
-    ], string='Estado', default='draft', tracking=True)
+    STATES = [
+        ('draft', 'V°B° Solicitante'),
+        ('stage_1', 'V°B° Jefatura'),
+        ('stage_2', 'V°B° Direccion'),
+        ('stage_3', 'V°B° Contable'),
+        ('stage_4', 'V°B° Logistica'),
+        ('stage_5', 'Contabilidad'),
+        ('cancelled', 'Anulado'),
+    ]
+
+    status = fields.Selection(STATES, string='state', default="draft")
 
     # Información general
     employee_id = fields.Many2one(
@@ -49,12 +53,6 @@ class TravelRequest(models.Model):
     activity_type_ids = fields.One2many('travel.activity', 'request_id', string='Actividades')
     total_amount = fields.Float(string='Total', compute='_compute_total_amount', store=True, digits=(12, 2))
 
-   
-    # Firmas
-    employee_signature = fields.Binary(string="Firma del Empleado")
-    area_signature = fields.Binary(string="Firma del Responsable")
-    admin_signature = fields.Binary(string="Firma del Administrador")
-
 
     @api.onchange('transport_air')
     def _onchange_transport_air(self):
@@ -79,3 +77,23 @@ class TravelRequest(models.Model):
         if vals.get('name', 'Nuevo') == 'Nuevo':
             vals['name'] = self.env['ir.sequence'].next_by_code('travel.request') or 'Nuevo'
         return super().create(vals)
+    
+
+    def action_valited_request(self):
+        for record in self:
+            # Evitar avanzar si el estado es 'cancelled'
+            if record.status == 'cancelled':
+                continue
+            # Crear secuencia de estados que NO incluye 'cancelled'
+            valid_states = [s[0] for s in record.STATES if s[0] != 'cancelled']
+            # Obtener índice actual del estado
+            if record.status not in valid_states:
+                record.status = 'draft'
+                continue
+            current_index = valid_states.index(record.status)
+            # Solo avanzar si no estamos en el último estado
+            if current_index < len(valid_states) - 1:
+                record.status = valid_states[current_index + 1]
+
+    def decline_request(self):
+        self.status = 'draft'

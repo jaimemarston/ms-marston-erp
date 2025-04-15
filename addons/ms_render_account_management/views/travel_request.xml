@@ -2,13 +2,15 @@
 <odoo>
     <data>
         <!-- Vista Formulario -->
-        <record id="ms_request_management_oc_view_form" model="ir.ui.view">
+        <record id="request_travel_view_form" model="ir.ui.view">
             <field name="name">travel.request.form</field>
             <field name="model">travel.request</field>
             <field name="arch" type="xml">
                 <form string="Solicitud de Viaje">
                     <header>
-                        <field name="state" widget="statusbar"/>
+                        <button string="Validar" name="action_valited_request" type="object" class="oe_highlight" invisible="status in ['cancelled']"/>
+                        <button string="Rechazar" name="decline_request" type="object" class="oe_highlight" invisible="status not in ['stage_2', 'stage_3']"/>
+                        <field name="status" widget="statusbar" statusbar_visible="draft,stage_1,stage_2,stage_3,stage_4,stage_5"/>
                     </header>
                     <sheet>
                         <!-- Grupo de Datos Personales -->
@@ -83,24 +85,6 @@
                             </page>
                             
                         </notebook>
-
-                        <!-- Grupo de Firmas con imágenes más pequeñas -->
-                        <group string="Firmas">
-                            <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 40px; margin-bottom: 60px;">
-                                <div>
-                                    <label for="employee_signature">Empleado</label><br/>
-                                    <field name="employee_signature" widget="image" options="{'preview_image': 'true'}" style="height: 60px; width: 120px;"/>
-                                </div>
-                                <div>
-                                    <label for="area_signature">Responsable Área</label><br/>
-                                    <field name="area_signature" widget="image" options="{'preview_image': 'true'}" style="height: 60px; width: 120px;"/>
-                                </div>
-                                <div>
-                                    <label for="admin_signature">Administrador</label><br/>
-                                    <field name="admin_signature" widget="image" options="{'preview_image': 'true'}" style="height: 60px; width: 120px;"/>
-                                </div>
-                            </div>
-                        </group>
                     </sheet>
                     <chatter/>
                 </form>
@@ -108,7 +92,7 @@
         </record>
 
         <!-- Vista Lista -->
-        <record id="ms_request_management_oc_view_list" model="ir.ui.view">
+        <record id="request_travel_view_list" model="ir.ui.view">
             <field name="name">travel.request.list</field>
             <field name="model">travel.request</field>
             <field name="arch" type="xml">
@@ -119,7 +103,6 @@
                     <field name="return_date"/>
                     <field name="project_id"/>
                     <field name="total_amount"/>
-                    <field name="state" widget="badge"/>
                 </list>
             </field>
         </record>
@@ -135,14 +118,14 @@
         <record model="ir.actions.act_window.view" id="action_requests_travel_form">
             <field name="sequence" eval="2"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="ms_request_management_oc_view_form"/>
+            <field name="view_id" ref="request_travel_view_form"/>
             <field name="act_window_id" ref="action_requests_travel"/>
         </record>
 
         <record model="ir.actions.act_window.view" id="action_requests_travel_list">
             <field name="sequence" eval="1"/>
             <field name="view_mode">list</field>
-            <field name="view_id" ref="ms_request_management_oc_view_list"/>
+            <field name="view_id" ref="request_travel_view_list"/>
             <field name="act_window_id" ref="action_requests_travel"/>
         </record>
     </data>

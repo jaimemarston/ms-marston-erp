@@ -33,6 +33,7 @@
                         <group>
                             <group string="Solicitud">
                                 <field name="partner_id" string="Solicitante"/>
+                                <field name="to_render_id" domain="[('partner_id', '=', partner_id)]"/>
                                 <field name="request_type" invisible="1"/>
                                 <field name="area_id"/>
                                 <field name="project_id" string="Proyecto" />
