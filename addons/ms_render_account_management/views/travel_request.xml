@@ -4,7 +4,7 @@
         <!-- Vista Formulario -->
         <record id="request_travel_view_form" model="ir.ui.view">
             <field name="name">travel.request.form</field>
-            <field name="model">travel.request</field>
+            <field name="model">ms.request.management</field>
             <field name="arch" type="xml">
                 <form string="Solicitud de Viaje">
                     <header>
@@ -13,10 +13,14 @@
                         <field name="status" widget="statusbar" statusbar_visible="draft,stage_1,stage_2,stage_3,stage_4,stage_5"/>
                     </header>
                     <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Correlativo"/>
+                            <h1><field name="name" /></h1>
+                        </div>
                         <!-- Grupo de Datos Personales -->
                         <group string="Datos Personales" col="4">
-                            <field name="employee_id" widget="hr_employee"/>
-                            <field name="dni"/>
+                            <field name="partner_id" string="Nombre y Apellido"/>
+                            <field name="dni_ident"/>
                             <field name="phone"/>
                             <field name="birth_date"/>
                         </group>
@@ -25,16 +29,15 @@
                         <group string="Información General">
                             <group>
                                 <!-- Primera fila -->
-                                <field name="project_id"/>
-                                <field name="area_responsible_id"/>
+                                <field name="project_id" string="Proyecto"/>
                                 <field name="return_date"/>
+                                <field name="reason"/>
                             </group>
                             
                             <group>
                                 <!-- Segunda fila -->
-                                <field name="administrator_id"/>
                                 <field name="departure_date"/>
-                                <field name="reason"/>
+                                <field name="area_id"/>
                             </group>
                         </group>
 
@@ -78,8 +81,8 @@
                                 </field>
                                <div style="display: flex; justify-content: flex-end;">
                                     <div style="margin-left: auto;">
-                                        <h1><label for="total_amount" string="Amount:"/></h1>
-                                        <h1><field name="total_amount" /></h1>
+                                        <h1><label for="amount" string="Amount:"/></h1>
+                                        <h1><field name="amount" /></h1>
                                     </div>
                                 </div>
                             </page>
@@ -94,15 +97,15 @@
         <!-- Vista Lista -->
         <record id="request_travel_view_list" model="ir.ui.view">
             <field name="name">travel.request.list</field>
-            <field name="model">travel.request</field>
+            <field name="model">ms.request.management</field>
             <field name="arch" type="xml">
                 <list>
                     <field name="name"/>
-                    <field name="employee_id"/>
+                    <field name="partner_id" string="Solicitante"/>
                     <field name="departure_date"/>
                     <field name="return_date"/>
                     <field name="project_id"/>
-                    <field name="total_amount"/>
+                    <field name="amount"/>
                 </list>
             </field>
         </record>
@@ -110,8 +113,10 @@
         <!-- Acción -->
         <record id="action_requests_travel" model="ir.actions.act_window">
             <field name="name">Solicitud de Pasajes</field>
-            <field name="res_model">travel.request</field>
+            <field name="res_model">ms.request.management</field>
             <field name="view_mode">list,form</field>
+            <field name="domain">[('request_type', '=', 'sp')]</field>
+            <field name="context">{'default_request_type': 'sp'}</field>
         </record>
 
         <!-- Vistas asociadas a la acción -->

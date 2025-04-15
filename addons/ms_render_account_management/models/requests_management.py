@@ -15,6 +15,7 @@ class MsRequestManagement(models.Model):
         ('refund', 'Refund'),
         ('os', 'O.S'),
         ('oc', 'O.C'),
+        ('sp', 'S.P'),
     ]
 
     STATES = [
@@ -108,6 +109,45 @@ class MsRequestManagement(models.Model):
      # Relaciones a los formatos 8 y 9
     activity_report_ids = fields.One2many('ms.activity.report','request_id',string='Informes de Actividad')
     conformity_report_ids = fields.One2many('ms.conformity.report','request_id',string='Actas de Conformidad')
+
+
+
+# ------------------------------------fields de travel----------------------------------------
+
+    dni_ident = fields.Char(string='DNI', readonly=False)
+    phone = fields.Char(string='Teléfono', readonly=False)
+    birth_date = fields.Date(string='Fecha Nacimiento', readonly=False)
+    reason = fields.Text(string='Motivo del Viaje')
+    departure_date = fields.Date(string='Fecha de Salida')
+    return_date = fields.Date(string='Fecha de Retorno')
+
+    # Capacitación
+    training_type = fields.Selection([
+        ('teachers', 'Capacitación docentes'),
+        ('directors', 'Capacitación directivos'),
+        ('other', 'Otro')
+    ], string='Tipo de Capacitación')
+
+    # Transporte
+    transport_air = fields.Boolean(string='Transporte Aéreo')
+    transport_land = fields.Boolean(string='Transporte Terrestre')
+
+    # Presupuesto
+    activity_type_ids = fields.One2many('travel.activity', 'request_id', string='Actividades')
+    
+
+    @api.onchange('transport_air')
+    def _onchange_transport_air(self):
+        if self.transport_air:
+            self.transport_land = False
+
+    @api.onchange('transport_land')
+    def _onchange_transport_land(self):
+        if self.transport_land:
+            self.transport_air = False
+
+
+
     
     @api.depends('os_id')
     def _compute_partner(self):
@@ -123,8 +163,11 @@ class MsRequestManagement(models.Model):
     def _compute_name(self):
         for record in self:
             name = ""
-            if record.request_type in ['contract', 'os', 'oc']:
-                name = ("C-" if record.request_type == "contract" else "OS-" if record.request_type == 'os' else "OC-") + str(record.id)
+            if record.request_type in ['contract', 'os', 'oc', 'sp']:
+                name = ("C-" if record.request_type == "contract" 
+                        else "OS-" if record.request_type == 'os' 
+                        else "OC-" if record.request_type == 'oc' 
+                        else "SP-") + str(record.id)
             else:
                 name = "#"
                 if record.area_id:
@@ -133,7 +176,8 @@ class MsRequestManagement(models.Model):
                     name = name + "-" + record.activity_code
             record.name = name
 
-    @api.depends('requests_lines_ids.amount', 'payments_request_ids.amount')
+
+    @api.depends('requests_lines_ids.amount', 'payments_request_ids.amount', 'activity_type_ids.amount')
     def _compute_amount(self):
         for record in self:
             lines_total = sum(line.amount for line in record.requests_lines_ids)

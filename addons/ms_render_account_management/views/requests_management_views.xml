@@ -33,7 +33,7 @@
                     <group>
                         <group string="Datos de Aplicante">
                             <field name="partner_id" string="Solicitante"/>
-                            <field name="os_id" string="Documento" domain="[('partner_id', '=', partner_id), ('request_type', 'in', ['contract', 'os', 'oc'])]"/>
+                            <field name="os_id" string="Documento" domain="[('partner_id', '=', partner_id), ('request_type', 'in', ['contract', 'os', 'oc', 'sp'])]"/>
                             <field name="request_type" invisible="0"/>
                             <field name="area_id"/>
                             <field name="project_id" string="Proyecto" />

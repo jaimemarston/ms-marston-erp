@@ -6,5 +6,4 @@ access_ms_treasury_users,ms.treasury.users,model_ms_treasury,base.group_user,1,1
 access_to_surrender_management,to.surrender.management,model_to_surrender_management,base.group_user,1,1,1,0
 access_ms_activity_report,ms.activity.report,model_ms_activity_report,base.group_user,1,1,1,0
 access_ms_conformity_report,ms.conformity.report,model_ms_conformity_report,base.group_user,1,1,1,0
-access_travel_activity,travel.activity,model_travel_activity,base.group_user,1,1,1,0
-access_travel_request,travel.request,model_travel_request,base.group_user,1,1,1,0
+access_travel_activity,travel.activity,model_travel_activity,base.group_user,1,1,1,1
