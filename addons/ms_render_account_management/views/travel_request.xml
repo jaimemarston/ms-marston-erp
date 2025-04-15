@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Formulario -->
+        <record id="ms_request_management_oc_view_form" model="ir.ui.view">
+            <field name="name">travel.request.form</field>
+            <field name="model">travel.request</field>
+            <field name="arch" type="xml">
+                <form string="Solicitud de Viaje">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <!-- Grupo de Datos Personales -->
+                        <group string="Datos Personales" col="4">
+                            <field name="employee_id" widget="hr_employee"/>
+                            <field name="dni"/>
+                            <field name="phone"/>
+                            <field name="birth_date"/>
+                        </group>
+
+                      <!-- Grupo de Información General -->
+                        <group string="Información General">
+                            <group>
+                                <!-- Primera fila -->
+                                <field name="project_id"/>
+                                <field name="area_responsible_id"/>
+                                <field name="return_date"/>
+                            </group>
+                            
+                            <group>
+                                <!-- Segunda fila -->
+                                <field name="administrator_id"/>
+                                <field name="departure_date"/>
+                                <field name="reason"/>
+                            </group>
+                        </group>
+
+                        <!-- Secciones en pestañas -->
+                        <notebook>
+                            <!-- Pestaña de Capacitación -->
+                            <page string="Capacitación">
+                                <group>
+                                    <field name="training_type"/>
+                                </group>
+                            </page>
+
+                            <!-- Pestaña de Transporte -->
+                            <page string="Transporte">
+                                <group col="2">
+                                    <field name="transport_air"/>
+                                    <field name="transport_land"/>
+                                </group>
+                            </page>
+
+                            <!-- Pestaña de Presupuesto -->
+                            <page string="Presupuesto">
+                                <field name="activity_type_ids">
+                                    <list string="Actividades">
+                                        <field name="name"/>
+                                        <field name="project_id"/>
+                                        <field name="activity_type"/>
+                                        <field name="amount"/>
+                                    </list>
+                                    <form string="Crear Actividad">
+                                        <sheet>
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="project_id"/>
+                                                <field name="activity_type"/>
+                                                <field name="amount"/>
+                                            </group>
+                                            
+                                        </sheet>
+                                    </form>
+                                </field>
+                               <div style="display: flex; justify-content: flex-end;">
+                                    <div style="margin-left: auto;">
+                                        <h1><label for="total_amount" string="Amount:"/></h1>
+                                        <h1><field name="total_amount" /></h1>
+                                    </div>
+                                </div>
+                            </page>
+                            
+                        </notebook>
+
+                        <!-- Grupo de Firmas con imágenes más pequeñas -->
+                        <group string="Firmas">
+                            <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 40px; margin-bottom: 60px;">
+                                <div>
+                                    <label for="employee_signature">Empleado</label><br/>
+                                    <field name="employee_signature" widget="image" options="{'preview_image': 'true'}" style="height: 60px; width: 120px;"/>
+                                </div>
+                                <div>
+                                    <label for="area_signature">Responsable Área</label><br/>
+                                    <field name="area_signature" widget="image" options="{'preview_image': 'true'}" style="height: 60px; width: 120px;"/>
+                                </div>
+                                <div>
+                                    <label for="admin_signature">Administrador</label><br/>
+                                    <field name="admin_signature" widget="image" options="{'preview_image': 'true'}" style="height: 60px; width: 120px;"/>
+                                </div>
+                            </div>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Lista -->
+        <record id="ms_request_management_oc_view_list" model="ir.ui.view">
+            <field name="name">travel.request.list</field>
+            <field name="model">travel.request</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="departure_date"/>
+                    <field name="return_date"/>
+                    <field name="project_id"/>
+                    <field name="total_amount"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Acción -->
+        <record id="action_requests_travel" model="ir.actions.act_window">
+            <field name="name">Solicitud de Pasajes</field>
+            <field name="res_model">travel.request</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Vistas asociadas a la acción -->
+        <record model="ir.actions.act_window.view" id="action_requests_travel_form">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="ms_request_management_oc_view_form"/>
+            <field name="act_window_id" ref="action_requests_travel"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_requests_travel_list">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="ms_request_management_oc_view_list"/>
+            <field name="act_window_id" ref="action_requests_travel"/>
+        </record>
+    </data>
+</odoo>

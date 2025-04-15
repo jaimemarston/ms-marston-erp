@@ -16,6 +16,7 @@
         'views/requests_surrenders_views.xml',
         'views/account_move_views.xml',
         'views/treasury_views.xml',
+        'views/travel_request.xml',
         'views/menus_views.xml',
     ],
 
