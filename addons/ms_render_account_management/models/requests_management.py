@@ -97,6 +97,7 @@ class MsRequestManagement(models.Model):
     treasury_id = fields.Many2one('ms.treasury', string='Tesoreria')
 
     to_render_id = fields.Many2one('to.surrender.management', string="Documento")
+    amount_to_render = fields.Float(string="Monto a Rendir", related='to_render_id.amount', store=True)
 
     # dni = fields.Char('dni')  
     correlative = fields.Char('correlative')

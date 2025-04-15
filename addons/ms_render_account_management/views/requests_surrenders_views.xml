@@ -38,6 +38,7 @@
                                 <field name="area_id"/>
                                 <field name="project_id" string="Proyecto" />
                                 <field name="date" />
+                                <field name="amount_to_render" />
                             </group>
                         </group>
                         <notebook>
