@@ -25,10 +25,10 @@ class MsRequestManagement(models.Model):
         ('stage_3', 'V°B° Contable'),
         ('stage_4', 'V°B° Logistica'),
         ('stage_5', 'Contabilidad'),
-        ('cancelled', 'Anulado'),
-        
-        
+        ('cancelled', 'Anulado'),        
     ]
+
+
     # --------------------
     # fields
     # --------------------    
@@ -166,18 +166,34 @@ class MsRequestManagement(models.Model):
     def _compute_name(self):
         for record in self:
             name = ""
-            if record.request_type in ['contract', 'os', 'oc', 'sp']:
-                name = ("C-" if record.request_type == "contract" 
-                        else "OS-" if record.request_type == 'os' 
-                        else "OC-" if record.request_type == 'oc' 
-                        else "SP-") + str(record.id)
+            print('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', record.request_type)
+            print('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', record.request_type)
+
+            # Correlativos para tipos de solicitud conocidos
+            if record.request_type == 'contract':
+                name = "C-" + str(record.id)
+            elif record.request_type == 'os':
+                name = "OS-" + str(record.id)
+            elif record.request_type == 'oc':
+                name = "OC-" + str(record.id)
+            elif record.request_type == 'sp':
+                name = "SV-" + str(record.id)
+            elif record.request_type == 'surrenders':
+                name = "RE-" + str(record.id)
+            elif record.request_type == 'payment':
+                name = "SP-" + str(record.id)
+
+            # Else: Para otros casos
             else:
                 name = "#"
                 if record.area_id:
                     name = name + "-" + record.area_id.name
                 if record.activity_code:
                     name = name + "-" + record.activity_code
+
+            # Asignar el nombre calculado al campo 'name'
             record.name = name
+
 
 
     @api.depends('requests_lines_ids.amount', 'payments_request_ids.amount', 'activity_type_ids.amount')

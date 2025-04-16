@@ -30,7 +30,7 @@ class ToSurrenderManagement(models.Model):
         ('cancelled', 'Anulado'),
     ]
 
-    name = fields.Char('name', compute="_compute_name")
+    name = fields.Char('name', compute="_compute_name_to")
     partner_id = fields.Many2one('res.partner', string='partner', compute="_compute_partner", readonly=False, store=True)
     area_id = fields.Many2one('ms.account.system.settings', string='Area', domain="[('type', '=', 'areas')]")
     project_id = fields.Many2one('account.analytic.account', string='project')
@@ -67,18 +67,11 @@ class ToSurrenderManagement(models.Model):
 
 
     @api.depends('area_id', 'activity_code')
-    def _compute_name(self):
+    def _compute_name_to(self):
         for record in self:
-            name = ""
-            if record.request_type in ['contract', 'os', 'oc']:
-                name = ("C-" if record.request_type == "contract" else "OS-" if record.request_type == 'os' else "OC-") + str(record.id)
-            else:
-                name = "#"
-                if record.area_id:
-                    name = name + "-" + record.area_id.name
-                if record.activity_code:
-                    name = name + "-" + record.activity_code
-            record.name = name
+            # Si 'request_type' es 'surrenders', asignar "AR-" seguido del id
+            if not record.request_type:
+                record.name = "AR-" + str(record.id)
 
 
     def action_valited_request(self):
