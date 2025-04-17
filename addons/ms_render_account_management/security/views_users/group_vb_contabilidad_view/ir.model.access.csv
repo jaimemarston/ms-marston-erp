@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ms_request_management_contabilidad,Acceso Solicitudes (Contabilidad),model_ms_request_management,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_ms_requests_lines_contabilidad,Acceso Líneas de Solicitud (Contabilidad),model_ms_requests_lines,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_ms_activity_report_contabilidad,Acceso Reporte de Actividades (Contabilidad),model_ms_activity_report,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_ms_payment_requests_contabilidad,Acceso Peticiones de Pago (Contabilidad),model_ms_payment_requests,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_account_move_contabilidad,Acceso Asientos Contables (Contabilidad),model_account_move,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_ms_treasury_contabilidad,Acceso Tesorería (Contabilidad),model_ms_treasury,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_travel_activity_contabilidad,Acceso Actividades de Viaje (Contabilidad),model_travel_activity,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
+access_to_surrender_management_contabilidad,cceso Entrega a Rendir (Contabilidad),model_to_surrender_management,ms_render_account_management.group_vb_contabilidad_ms,1,1,1,0
