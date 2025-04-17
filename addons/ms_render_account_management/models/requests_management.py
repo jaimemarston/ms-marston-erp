@@ -199,7 +199,16 @@ class MsRequestManagement(models.Model):
         for record in self:
             lines_total = sum(line.amount for line in record.requests_lines_ids)
             payments_total = sum(record.payments_request_ids.mapped('amount'))
-            record.amount = lines_total + payments_total
+            activities_total = sum(activity.amount for activity in record.activity_type_ids)
+
+            record.amount = 0.0  # Valor por defecto si ninguna suma tiene monto
+
+            if lines_total:
+                record.amount = lines_total
+            elif payments_total:
+                record.amount = payments_total
+            elif activities_total:
+                record.amount = activities_total
 
 
     def action_valited_request(self):

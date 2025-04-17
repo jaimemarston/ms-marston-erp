@@ -18,5 +18,20 @@
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         </record>
 
+        <record id="group_vb_jefatura_ms" model="res.groups">
+            <field name="name">V.B. Jefatura</field>
+            <field name="category_id" ref="base.module_category_customization"/>
+        </record>
+
+        <record id="group_vb_direccion_ms" model="res.groups">
+            <field name="name">V.B. Dirección</field>
+            <field name="category_id" ref="base.module_category_customization"/>
+        </record>
+
+        <record id="group_vb_logistica_ms" model="res.groups">
+            <field name="name">V.B. Logística</field>
+            <field name="category_id" ref="base.module_category_customization"/>
+        </record>
+
     </data>
 </odoo>
