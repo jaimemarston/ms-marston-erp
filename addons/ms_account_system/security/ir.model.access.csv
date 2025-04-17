@@ -1,8 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_plan_user,Project Plan User,model_ms_account_system_project_plan,base.group_user,1,0,0,0
+access_project_plan_user,Project Plan User,model_ms_account_system_project_plan,base.group_system,1,0,0,0
 access_project_plan_manager,Project Plan Manager,model_ms_account_system_project_plan,base.group_system,1,1,1,1
-access_business_plan_user,Business Plan User,model_ms_account_system_business_plan,base.group_user,1,0,0,0
+access_business_plan_user,Business Plan User,model_ms_account_system_business_plan,base.group_system,1,0,0,0
 access_business_plan_manager,Business Plan Manager,model_ms_account_system_business_plan,base.group_system,1,1,1,1
-access_activity_plan_user,Activity Plan User,model_ms_account_system_activity_plan,base.group_user,1,0,0,0
+access_activity_plan_user,Activity Plan User,model_ms_account_system_activity_plan,base.group_system,1,0,0,0
 access_activity_plan_manager,Activity Plan Manager,model_ms_account_system_activity_plan,base.group_system,1,1,1,1
 access_ms_account_system_settings,ms.account.system.settings,model_ms_account_system_settings,base.group_user,1,1,1,1

@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="faith_and_joy_requests_menu_root" name="Requests" sequence="1"/>
+    <menuitem id="faith_and_joy_requests_menu_root" name="Requests" sequence="1"  groups="ms_render_account_management.group_vb_solicitante_ms"/>
     <!-- <menuitem id="request_settings_menu" name="Settings" action="action_ms_request_settings" parent="faith_and_joy_requests_menu_root" sequence="20"/> -->
     <menuitem
         id="ms_management_menu"
         name="Gestión de solicitudes"
         parent="faith_and_joy_requests_menu_root"
-        sequence="10"/>
-    <menuitem id="request_management_menu" name="Request payment" sequence="10" action="action_ms_requests_management" parent="ms_management_menu"/>
+        sequence="10"
+        groups="ms_render_account_management.group_vb_solicitante_ms"
+        />
+    <menuitem id="request_management_menu" name="Request payment" sequence="10" action="action_ms_requests_management" parent="ms_management_menu" groups="ms_render_account_management.group_vb_solicitante_ms"/>
     <menuitem id="request_to_render_menu" name="Entrega a Rendir" sequence="10" action="action_to_surrender_management_to_render" parent="ms_management_menu"/>
     <menuitem id="request_surrenders_menu" name="Surrenders" sequence="10" action="action_ms_requests_management_surrenders" parent="ms_management_menu"/>
-    <menuitem id="request_documents_menu" name="Documentos" sequence="12"  parent="faith_and_joy_requests_menu_root"/>
-    <menuitem id="request_contracts_menu" name="Contratos" action="action_ms_requests_management_contract" parent="request_documents_menu" sequence="10"/>
-    <menuitem id="request_os_menu" name="Orden de Servicio" sequence="12" action="action_ms_requests_management_os" parent="request_documents_menu"/>
-    <menuitem id="request_oc_menu" name="Orden de compra" sequence="12" action="action_ms_requests_management_oc" parent="request_documents_menu"/>
-    <menuitem id="request_travel_menu" name="Solicitud de Pasajes" sequence="12" action="action_requests_travel" parent="request_documents_menu"/>
+    <menuitem id="request_documents_menu" name="Documentos" sequence="12"  parent="faith_and_joy_requests_menu_root"  groups="ms_render_account_management.group_vb_solicitante_ms"/>
+    <menuitem id="request_contracts_menu" name="Contratos" action="action_ms_requests_management_contract" parent="request_documents_menu" sequence="10" groups="ms_render_account_management.group_vb_solicitante_ms"/>
+    <menuitem id="request_os_menu" name="Orden de Servicio" sequence="12" action="action_ms_requests_management_os" parent="request_documents_menu" groups="ms_render_account_management.group_vb_solicitante_ms"/>
+    <menuitem id="request_oc_menu" name="Orden de compra" sequence="12" action="action_ms_requests_management_oc" parent="request_documents_menu" groups="ms_render_account_management.group_vb_solicitante_ms"/>
+    <menuitem id="request_travel_menu" name="Solicitud de Pasajes" sequence="12" action="action_requests_travel" parent="request_documents_menu"  groups="ms_render_account_management.group_vb_solicitante_ms"/>
     <!-- <menuitem id="ms_treasury_menu" name="Tesoreria" sequence="13"  parent="faith_and_joy_requests_menu_root" action="ms_treasury_action"/> -->
    <!-- Menú Tesorería: Solo visible para usuarios que NO pertenezcan al grupo 'No Access to Tesorería' -->
-    <menuitem id="ms_treasury_menu" name="Tesoreria" sequence="13" parent="faith_and_joy_requests_menu_root" action="ms_treasury_action" groups="base.group_user"/>
+    <menuitem id="ms_treasury_menu" name="Tesoreria" sequence="13" parent="faith_and_joy_requests_menu_root" action="ms_treasury_action" />
 </odoo>

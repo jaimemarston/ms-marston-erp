@@ -166,9 +166,7 @@ class MsRequestManagement(models.Model):
     def _compute_name(self):
         for record in self:
             name = ""
-            print('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', record.request_type)
-            print('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', record.request_type)
-
+            
             # Correlativos para tipos de solicitud conocidos
             if record.request_type == 'contract':
                 name = "C-" + str(record.id)
