@@ -15,6 +15,7 @@
         <record id="group_vb_solicitante_ms" model="res.groups">
             <field name="name">V.B. Solicitante</field>
             <field name="category_id" ref="base.module_category_customization"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         </record>
 
     </data>

@@ -20,5 +20,5 @@
     <menuitem id="request_travel_menu" name="Solicitud de Pasajes" sequence="12" action="action_requests_travel" parent="request_documents_menu"  groups="ms_render_account_management.group_vb_solicitante_ms"/>
     <!-- <menuitem id="ms_treasury_menu" name="Tesoreria" sequence="13"  parent="faith_and_joy_requests_menu_root" action="ms_treasury_action"/> -->
    <!-- Menú Tesorería: Solo visible para usuarios que NO pertenezcan al grupo 'No Access to Tesorería' -->
-    <menuitem id="ms_treasury_menu" name="Tesoreria" sequence="13" parent="faith_and_joy_requests_menu_root" action="ms_treasury_action" />
+    <menuitem id="ms_treasury_menu" name="Tesoreria" sequence="13" parent="faith_and_joy_requests_menu_root" action="ms_treasury_action" groups="ms_render_account_management.group_vb_solicitante_ms"/>
 </odoo>
