@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="menu_root_hr_empleoyees" name="Employees" sequence="10" groups="base.group_system"/>
+    <menuitem id="menu_root_hr_empleoyees" name="Employees" sequence="10" groups="base.group_system,ms_render_account_management.group_vb_contabilidad_ms"/>
 
     <menuitem id="hr_recruitment.menu_hr_recruitment_root" name="Recruitment" parent="menu_root_hr_empleoyees" sequence="20"/>
 

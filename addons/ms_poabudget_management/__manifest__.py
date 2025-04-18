@@ -16,6 +16,7 @@
         'web',
         'account',
         'analytic',
+        'ms_render_account_management'
     ],
     'data': [
         'security/ir.model.access.csv',

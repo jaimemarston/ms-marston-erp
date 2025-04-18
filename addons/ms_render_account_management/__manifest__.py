@@ -8,9 +8,7 @@
                 'account',
                 'om_account_accountant',
                 'ms_account_system',
-                'accounting_pdf_reports',
-                'ms_hr_management',
-                'ms_poabudget_management'],
+                'accounting_pdf_reports'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',

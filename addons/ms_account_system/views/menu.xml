@@ -45,7 +45,7 @@
         <field name="active" eval="False"/>
     </record>
 
-    <menuitem id="menu_asset_fixed" name="Activo Fijo" sequence="38" groups="base.group_system"/>
+    <menuitem id="menu_asset_fixed" name="Activo Fijo" sequence="38" groups="base.group_system,ms_account_system.group_menu_contabilidad"/>
     <menuitem id="om_account_asset.menu_action_account_asset_asset_form" name="Registro de Activos" sequence="10" parent="menu_asset_fixed"/>
     <menuitem id="om_account_asset.menu_action_account_asset_asset_list_normal_purchase" name="Tipo de Activo" sequence="20" parent="menu_asset_fixed"/>
     <menuitem id="menu_calculation_asset_fixed" name="Calculo" sequence="30" parent="menu_asset_fixed"/>

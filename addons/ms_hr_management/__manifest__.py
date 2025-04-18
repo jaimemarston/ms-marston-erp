@@ -12,6 +12,7 @@
         'hr_org_chart',
         'resource',
         'payroll',
+        'ms_render_account_management'
     ],
     'data': [
         'views/menu.xml',
